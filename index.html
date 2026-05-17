@@ -10,25 +10,53 @@
 <body>
 <div class="noise"></div>
 <div class="container">
- 
-  <!-- TELA 1: INTRO -->
-  <div class="screen active" id="screen-intro">
+
+  <!-- TELA 0: SELEÇÃO DE CASOS -->
+  <div class="screen active" id="screen-select">
+    <div class="game-header">
+      <div class="eyebrow">Lógica Proposicional — Dossier de Casos</div>
+      <h1>Escolha<br>seu Caso</h1>
+      <p class="subtitle">Dois crimes. Uma mente. Qual investigação você enfrenta primeiro?</p>
+    </div>
+
+    <div class="cases-grid">
+      <div class="case-card" onclick="selectCase(1)">
+        <div class="case-number">Caso nº 1</div>
+        <span class="case-icon">💻</span>
+        <div class="case-title">A Noite na Cesar School</div>
+        <p class="case-desc">Um notebook desapareceu da sala de cibersegurança. Oito suspeitos. Nenhum arrombamento. Nenhum rastro visível.</p>
+        <div class="case-tag">Furto · Lógica Proposicional</div>
+        <button class="btn case-btn">Investigar →</button>
+      </div>
+      <div class="case-card" onclick="selectCase(2)">
+        <div class="case-number">Caso nº 2</div>
+        <span class="case-icon">🕯️</span>
+        <div class="case-title">A Sombra na Sala de Estudos</div>
+        <p class="case-desc">Um corpo foi encontrado na sala de estudos após a meia-noite. Seis suspeitos. Nenhuma fuga possível. Nenhuma confissão.</p>
+        <div class="case-tag">Assassinato · Lógica Proposicional</div>
+        <button class="btn case-btn">Investigar →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TELA 1A: INTRO — CASO 1 -->
+  <div class="screen" id="screen-intro-1">
     <div class="game-header">
       <div class="eyebrow">Lógica Proposicional — Caso nº 1</div>
       <h1>A Noite na<br>Cesar School</h1>
       <p class="subtitle">Nem toda sombra esconde inocência.</p>
     </div>
- 
+
     <div class="intro-box">
       <p>23h47. O Brum está quase vazio. A chuva bate forte nas janelas do corredor principal enquanto os últimos alunos ainda finalizam suas apresentações nos andares de cima. Lá embaixo, no silêncio do corredor técnico, o alarme silencioso da <strong style="color:var(--gold2)">sala de cibersegurança</strong> dispara por exatos quatro segundos — e some. Como se nunca tivesse existido.</p>
       <p>Às 00h12, a professora Diana percebe: o notebook institucional da sala havia desaparecido. Não era um notebook qualquer. Nele estavam meses de trabalho, projetos do semestre inteiro, credenciais de acesso a sistemas internos da escola e dados confidenciais de alunos e professores. <strong style="color:var(--gold2)">Desapareceu sem arrombamento. Sem rastro visível. Sem câmera quebrada.</strong> Alguém sabia exatamente o que estava fazendo — e sabia como não ser visto.</p>
       <p>A segurança foi acionada. Os acessos foram bloqueados. E uma verdade incômoda veio à tona: <strong style="color:var(--gold2)">oito pessoas estavam no Brum naquela noite</strong>, todas com acesso ao corredor da sala. Oito histórias. Oito alibis. Oito possíveis culpados.</p>
       <p>Não há impressões digitais. Não há confissão. O que existe são <strong style="color:var(--gold2)">pistas — proposições lógicas</strong> coletadas pelos investigadores nas primeiras horas após o crime. Cada uma delas é um fragmento da verdade. Juntas, elas formam uma cadeia irrefutável de raciocínio.</p>
-      <p style="color:var(--text2); font-style:italic;">Sua missão: analisar cada pista com frieza, aplicar as regras de inferência e identificar o único nome que a lógica não consegue descartar. O culpado cometeu um erro — deixou rastros no raciocínio. Encontre-os.</p>
+      <p style="color:var(--text2); font-style:italic;">Sua missão: analisar cada pista com frieza, aplicar as regras de inferência e identificar o único nome que a lógica não consegue descartar.</p>
     </div>
- 
+
     <div class="ornament">✦ ✦ ✦</div>
- 
+
     <div class="suspects-grid">
       <div class="suspect-card"><span class="suspect-icon">👩‍🎓</span><span class="suspect-name">Ana</span><span class="suspect-role">Aluna</span></div>
       <div class="suspect-card"><span class="suspect-icon">🧑‍💻</span><span class="suspect-name">Bruno</span><span class="suspect-role">Monitor</span></div>
@@ -39,48 +67,71 @@
       <div class="suspect-card"><span class="suspect-icon">💂</span><span class="suspect-name">Gabriel</span><span class="suspect-role">Segurança</span></div>
       <div class="suspect-card"><span class="suspect-icon">👩‍📚</span><span class="suspect-name">Helena</span><span class="suspect-role">Recepcionista</span></div>
     </div>
- 
+
     <div style="text-align:center">
       <button class="btn" onclick="goTo('screen-clues')">Iniciar Investigação →</button>
     </div>
   </div>
- 
-  <!-- TELA 2: PISTAS -->
+
+  <!-- TELA 1B: INTRO — CASO 2 -->
+  <div class="screen" id="screen-intro-2">
+    <div class="game-header">
+      <div class="eyebrow">Lógica Proposicional — Caso nº 2</div>
+      <h1>A Sombra na<br>Sala de Estudos</h1>
+      <p class="subtitle">Alguns segredos só sobrevivem no silêncio.</p>
+    </div>
+
+    <div class="intro-box">
+      <p>00h03. A sala de estudos do terreo está fechada quando o segurança Nunes percebe a porta entreaberta. A luz interna, que deveria ter sido apagada às 23h, ainda brilha fraca pelo vão. Ele empurra a porta — e para.</p>
+      <p>No chão, entre mesas e cadeiras derrubadas, está o corpo de <strong style="color:var(--gold2)">Thiago</strong>, aluno do quarto periodo. Traumatismo craniano. Sem sinais de luta prolongada. A janela está fechada por dentro. <strong style="color:var(--gold2)">Não há como ter entrado ou saído sem passar pela porta principal — e o sistema de acesso registrou apenas seis pessoas no terceiro andar naquela noite.</strong></p>
+      <p>Nenhuma delas admite ter estado na sala de estudos. Nenhuma conta a mesma história. Os registros das câmeras foram corrompidos — restam apenas o log de acesso, fragmentos de depoimentos e uma série de <strong style="color:var(--gold2)">proposições coletadas nas primeiras horas da investigação</strong>.</p>
+      <p>A lógica não mente. Cada proposição elimina um suspeito, cada inferência afunila o círculo — até restar apenas um nome que não pode ser descartado. O assassino acreditou ter apagado todos os rastros. Mas a razão ainda guarda os seus.</p>
+      <p style="color:var(--text2); font-style:italic;">Sua missão: seguir a cadeia de inferências, eliminar os inocentes e apontar o culpado que a lógica revela. Um erro de raciocínio é tudo que ele precisava — encontre-o antes que o tempo acabe.</p>
+    </div>
+
+    <div class="ornament">✦ ✦ ✦</div>
+
+    <div class="suspects-grid">
+      <div class="suspect-card"><span class="suspect-icon">🧑‍🎓</span><span class="suspect-name">Marcos</span><span class="suspect-role">Aluno Veterano</span></div>
+      <div class="suspect-card"><span class="suspect-icon">👩‍💻</span><span class="suspect-name">Lívia</span><span class="suspect-role">Monitora</span></div>
+      <div class="suspect-card"><span class="suspect-icon">🧹</span><span class="suspect-name">Roberto</span><span class="suspect-role">Zelador</span></div>
+      <div class="suspect-card"><span class="suspect-icon">👩‍🏫</span><span class="suspect-name">Patrícia</span><span class="suspect-role">Prof. de Filosofia</span></div>
+      <div class="suspect-card"><span class="suspect-icon">🎬</span><span class="suspect-name">Caio</span><span class="suspect-role">Técnico AV</span></div>
+      <div class="suspect-card"><span class="suspect-icon">📚</span><span class="suspect-name">Sônia</span><span class="suspect-role">Bibliotecária</span></div>
+    </div>
+
+    <div style="text-align:center">
+      <button class="btn" onclick="goTo('screen-clues')">Iniciar Investigação →</button>
+    </div>
+  </div>
+
+  <!-- TELA 2: PISTAS (compartilhada, preenchida dinamicamente) -->
   <div class="screen" id="screen-clues">
     <div class="step-indicator">ETAPA 1 DE 3 — ANÁLISE DAS PISTAS</div>
     <div class="progress-bar"><div class="progress-fill" style="width:33%"></div></div>
- 
+
     <div class="section-label">Suspeitos</div>
-    <div class="suspects-grid">
-      <div class="suspect-card" id="s-ana"><span class="suspect-icon">👩‍🎓</span><span class="suspect-name">Ana</span><span class="suspect-role">Aluna</span></div>
-      <div class="suspect-card" id="s-bruno"><span class="suspect-icon">🧑‍💻</span><span class="suspect-name">Bruno</span><span class="suspect-role">Monitor</span></div>
-      <div class="suspect-card" id="s-carlos"><span class="suspect-icon">🧑‍🔧</span><span class="suspect-name">Carlos</span><span class="suspect-role">Técnico de TI</span></div>
-      <div class="suspect-card" id="s-diana"><span class="suspect-icon">👩‍🏫</span><span class="suspect-name">Diana</span><span class="suspect-role">Professora</span></div>
-      <div class="suspect-card" id="s-eduardo"><span class="suspect-icon">👨‍🏫</span><span class="suspect-name">Eduardo</span><span class="suspect-role">Professor</span></div>
-      <div class="suspect-card" id="s-fernanda"><span class="suspect-icon">👩‍💼</span><span class="suspect-name">Fernanda</span><span class="suspect-role">Coordenadora</span></div>
-      <div class="suspect-card" id="s-gabriel"><span class="suspect-icon">💂</span><span class="suspect-name">Gabriel</span><span class="suspect-role">Segurança</span></div>
-      <div class="suspect-card" id="s-helena"><span class="suspect-icon">👩‍📚</span><span class="suspect-name">Helena</span><span class="suspect-role">Recepcionista</span></div>
-    </div>
- 
+    <div class="suspects-grid" id="suspects-grid-clues"></div>
+
     <div class="section-label">Pistas do caso</div>
     <ul class="clue-list" id="clue-list"></ul>
- 
+
     <div id="reveal-btn-area" style="text-align:center; margin-bottom:32px">
       <button class="btn" onclick="revealNextClue()">Revelar próxima pista</button>
     </div>
- 
+
     <div id="proceed-area" style="text-align:center; display:none">
       <div class="ornament" style="margin-bottom:24px">✦ ✦ ✦</div>
       <p style="color:var(--text2); margin-bottom:24px; font-style:italic">Todas as pistas foram reveladas. Está pronto para analisar a lógica?</p>
-      <button class="btn" onclick="goTo('screen-logic')">Ver análise lógica →</button>
+      <button class="btn" onclick="goToLogic()">Ver análise lógica →</button>
     </div>
   </div>
- 
-  <!-- TELA 3: LÓGICA -->
-  <div class="screen" id="screen-logic">
+
+  <!-- TELA 3A: LÓGICA — CASO 1 -->
+  <div class="screen" id="screen-logic-1">
     <div class="step-indicator">ETAPA 2 DE 3 — ANÁLISE FORMAL</div>
     <div class="progress-bar"><div class="progress-fill" style="width:66%"></div></div>
- 
+
     <div class="section-label">Legenda das proposições</div>
     <div class="notation-box">
       P = Ana estava na sala de cibersegurança no momento do crime<br>
@@ -94,28 +145,21 @@
       <br>
       <span style="color:var(--text2)">Apenas quem estava na sala de cibersegurança poderia ter roubado o notebook.</span>
     </div>
- 
+
     <div class="section-label">Tabela de inferências</div>
     <table class="logic-table">
       <thead>
-        <tr>
-          <th>Pista</th>
-          <th>Notação Formal</th>
-          <th>Regra</th>
-          <th>Conclusão</th>
-        </tr>
+        <tr><th>Pista</th><th>Notação Formal</th><th>Regra</th><th>Conclusão</th></tr>
       </thead>
       <tbody>
         <tr>
           <td style="color:var(--text)">Se Ana estava, Bruno também estava</td>
-          <td><span class="tag-prop">P → Q</span></td>
-          <td>—</td>
+          <td><span class="tag-prop">P → Q</span></td><td>—</td>
           <td style="color:var(--text3)">Premissa</td>
         </tr>
         <tr>
           <td style="color:var(--text)">Bruno não estava na sala de cibersegurança</td>
-          <td><span class="tag-prop">¬Q</span></td>
-          <td>—</td>
+          <td><span class="tag-prop">¬Q</span></td><td>—</td>
           <td style="color:var(--text3)">Premissa</td>
         </tr>
         <tr>
@@ -126,8 +170,7 @@
         </tr>
         <tr>
           <td style="color:var(--text)">Se Diana estava, Ana também estava</td>
-          <td><span class="tag-prop">S → P</span></td>
-          <td>—</td>
+          <td><span class="tag-prop">S → P</span></td><td>—</td>
           <td style="color:var(--text3)">Premissa</td>
         </tr>
         <tr>
@@ -138,8 +181,7 @@
         </tr>
         <tr>
           <td style="color:var(--text)">Se Fernanda estava, Diana também estava</td>
-          <td><span class="tag-prop">U → S</span></td>
-          <td>—</td>
+          <td><span class="tag-prop">U → S</span></td><td>—</td>
           <td style="color:var(--text3)">Premissa</td>
         </tr>
         <tr>
@@ -150,8 +192,7 @@
         </tr>
         <tr>
           <td style="color:var(--text)">Eduardo estava ou Ana estava na sala de cibersegurança</td>
-          <td><span class="tag-prop">T ∨ P</span></td>
-          <td>—</td>
+          <td><span class="tag-prop">T ∨ P</span></td><td>—</td>
           <td style="color:var(--text3)">Premissa</td>
         </tr>
         <tr>
@@ -162,8 +203,7 @@
         </tr>
         <tr>
           <td style="color:var(--text)">Se Eduardo estava, Carlos também estava</td>
-          <td><span class="tag-prop">T → R</span></td>
-          <td>—</td>
+          <td><span class="tag-prop">T → R</span></td><td>—</td>
           <td style="color:var(--text3)">Premissa</td>
         </tr>
         <tr>
@@ -174,20 +214,17 @@
         </tr>
         <tr>
           <td style="color:var(--text)">Eduardo tem álibi confirmado — não poderia ter agido</td>
-          <td><span class="tag-prop">¬culpado(T)</span></td>
-          <td>—</td>
+          <td><span class="tag-prop">¬culpado(T)</span></td><td>—</td>
           <td style="color:#e07070">Eduardo eliminado ✗</td>
         </tr>
         <tr>
           <td style="color:var(--text)">Helena estava na sala de cibersegurança ou Gabriel estava</td>
-          <td><span class="tag-prop">W ∨ V</span></td>
-          <td>—</td>
+          <td><span class="tag-prop">W ∨ V</span></td><td>—</td>
           <td style="color:var(--text3)">Premissa</td>
         </tr>
         <tr>
           <td style="color:var(--text)">Se Helena estava, então Bruno também estava</td>
-          <td><span class="tag-prop">W → Q</span></td>
-          <td>—</td>
+          <td><span class="tag-prop">W → Q</span></td><td>—</td>
           <td style="color:var(--text3)">Premissa</td>
         </tr>
         <tr>
@@ -204,14 +241,12 @@
         </tr>
         <tr>
           <td style="color:var(--text)">Gabriel estava de plantão — é o responsável pela segurança, não pelo furto</td>
-          <td><span class="tag-prop">¬culpado(V)</span></td>
-          <td>—</td>
+          <td><span class="tag-prop">¬culpado(V)</span></td><td>—</td>
           <td style="color:#e07070">Gabriel eliminado ✗</td>
         </tr>
         <tr>
           <td style="color:var(--text)">Apenas quem estava na sala poderia ser culpado</td>
-          <td><span class="tag-prop">R → culpado(R)</span></td>
-          <td>—</td>
+          <td><span class="tag-prop">R → culpado(R)</span></td><td>—</td>
           <td style="color:var(--text3)">Premissa</td>
         </tr>
         <tr style="background: rgba(224,108,0,0.07)">
@@ -222,47 +257,140 @@
         </tr>
       </tbody>
     </table>
- 
+
     <div style="text-align:center; margin-top:32px">
       <button class="btn" onclick="goTo('screen-answer')">Fazer minha acusação →</button>
     </div>
   </div>
- 
-  <!-- TELA 4: RESPOSTA -->
+
+  <!-- TELA 3B: LÓGICA — CASO 2 -->
+  <div class="screen" id="screen-logic-2">
+    <div class="step-indicator">ETAPA 2 DE 3 — ANÁLISE FORMAL</div>
+    <div class="progress-bar"><div class="progress-fill" style="width:66%"></div></div>
+
+    <div class="section-label">Legenda das proposições</div>
+    <div class="notation-box">
+      A = Marcos estava na sala de estudos no momento do crime<br>
+      B = Lívia estava na sala de estudos no momento do crime<br>
+      C = Roberto estava na sala de estudos no momento do crime<br>
+      D = Patrícia estava na sala de estudos no momento do crime<br>
+      E = Caio estava na sala de estudos no momento do crime<br>
+      F = Sônia estava na sala de estudos no momento do crime<br>
+      <br>
+      <span style="color:var(--text2)">Apenas quem estava na sala de estudos poderia ter cometido o assassinato.</span>
+    </div>
+
+    <div class="section-label">Tabela de inferências</div>
+    <table class="logic-table">
+      <thead>
+        <tr><th>Pista</th><th>Notação Formal</th><th>Regra</th><th>Conclusão</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="color:var(--text)">Se Marcos estava, Sônia também estava</td>
+          <td><span class="tag-prop">A → F</span></td><td>—</td>
+          <td style="color:var(--text3)">Premissa</td>
+        </tr>
+        <tr>
+          <td style="color:var(--text)">Sônia não estava na sala de estudos naquela noite</td>
+          <td><span class="tag-prop">¬F</span></td><td>—</td>
+          <td style="color:var(--text3)">Premissa</td>
+        </tr>
+        <tr>
+          <td style="color:var(--gold2)">Portanto, Marcos não estava</td>
+          <td><span class="tag-prop">¬A</span></td>
+          <td><span class="tag-rule">Modus Tollens</span></td>
+          <td style="color:#e07070">Marcos eliminado ✗</td>
+        </tr>
+        <tr>
+          <td style="color:var(--text)">Se Caio estava, então Marcos também estava</td>
+          <td><span class="tag-prop">E → A</span></td><td>—</td>
+          <td style="color:var(--text3)">Premissa</td>
+        </tr>
+        <tr>
+          <td style="color:var(--gold2)">Como Marcos não estava, Caio também não estava</td>
+          <td><span class="tag-prop">¬E</span></td>
+          <td><span class="tag-rule">Modus Tollens</span></td>
+          <td style="color:#e07070">Caio eliminado ✗</td>
+        </tr>
+        <tr>
+          <td style="color:var(--text)">Se Patrícia estava, então Marcos também estava</td>
+          <td><span class="tag-prop">D → A</span></td><td>—</td>
+          <td style="color:var(--text3)">Premissa</td>
+        </tr>
+        <tr>
+          <td style="color:var(--gold2)">Como Marcos não estava, Patrícia também não estava</td>
+          <td><span class="tag-prop">¬D</span></td>
+          <td><span class="tag-rule">Modus Tollens</span></td>
+          <td style="color:#e07070">Patrícia eliminada ✗</td>
+        </tr>
+        <tr>
+          <td style="color:var(--text)">Roberto ou Lívia estava na sala de estudos naquela noite</td>
+          <td><span class="tag-prop">C ∨ B</span></td><td>—</td>
+          <td style="color:var(--text3)">Premissa</td>
+        </tr>
+        <tr>
+          <td style="color:var(--text)">Se Roberto estava, então Sônia também estava</td>
+          <td><span class="tag-prop">C → F</span></td><td>—</td>
+          <td style="color:var(--text3)">Premissa</td>
+        </tr>
+        <tr>
+          <td style="color:var(--gold2)">Como Sônia não estava, Roberto também não estava</td>
+          <td><span class="tag-prop">¬C</span></td>
+          <td><span class="tag-rule">Modus Tollens</span></td>
+          <td style="color:#e07070">Roberto eliminado ✗</td>
+        </tr>
+        <tr>
+          <td style="color:var(--gold2)">Como Roberto não estava, Lívia estava</td>
+          <td><span class="tag-prop">B</span></td>
+          <td><span class="tag-rule">Sil. Disjuntivo</span></td>
+          <td style="color:var(--text3)">Lívia presente</td>
+        </tr>
+        <tr>
+          <td style="color:var(--text)">Apenas quem estava na sala poderia ter cometido o crime</td>
+          <td><span class="tag-prop">B → culpado(B)</span></td><td>—</td>
+          <td style="color:var(--text3)">Premissa</td>
+        </tr>
+        <tr style="background: rgba(224,108,0,0.07)">
+          <td style="color:var(--gold2); font-weight:600">Lívia é a culpada</td>
+          <td><span class="tag-prop">culpado(Lívia)</span></td>
+          <td><span class="tag-rule">Modus Ponens</span></td>
+          <td style="color:var(--gold2); font-weight:600">✦ Q.E.D.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div style="text-align:center; margin-top:32px">
+      <button class="btn" onclick="goTo('screen-answer')">Fazer minha acusação →</button>
+    </div>
+  </div>
+
+  <!-- TELA 4: ACUSAÇÃO (compartilhada, preenchida dinamicamente) -->
   <div class="screen" id="screen-answer">
     <div class="step-indicator">ETAPA 3 DE 3 — ACUSAÇÃO FINAL</div>
     <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
- 
+
     <div class="intro-box" style="margin-bottom:36px">
-      <p>Com base nas pistas analisadas e nas regras de inferência aplicadas, quem você acusa pelo roubo do notebook da Cesar School?</p>
+      <p>Com base nas pistas analisadas e nas regras de inferência aplicadas, quem você acusa pelo crime?</p>
     </div>
- 
+
     <div class="tries-info">Tentativas restantes: <strong style="color:var(--gold2)" id="tries-count">3</strong></div>
- 
-    <div class="choice-grid" id="choice-grid">
-      <button class="choice-btn" onclick="makeChoice('Ana')">👩‍🎓<br>Ana</button>
-      <button class="choice-btn" onclick="makeChoice('Bruno')">🧑‍💻<br>Bruno</button>
-      <button class="choice-btn" onclick="makeChoice('Carlos')">🧑‍🔧<br>Carlos</button>
-      <button class="choice-btn" onclick="makeChoice('Diana')">👩‍🏫<br>Diana</button>
-      <button class="choice-btn" onclick="makeChoice('Eduardo')">👨‍🏫<br>Eduardo</button>
-      <button class="choice-btn" onclick="makeChoice('Fernanda')">👩‍💼<br>Fernanda</button>
-      <button class="choice-btn" onclick="makeChoice('Gabriel')">💂<br>Gabriel</button>
-      <button class="choice-btn" onclick="makeChoice('Helena')">👩<br>Helena</button>
-    </div>
- 
+
+    <div class="choice-grid" id="choice-grid"></div>
+
     <div id="feedback-msg" style="text-align:center; color:#e07070; font-style:italic; margin-bottom:16px; min-height:24px"></div>
   </div>
- 
+
   <!-- TELA 5: RESULTADO -->
   <div class="screen" id="screen-result">
     <div id="result-content"></div>
-    <div style="text-align:center">
-      <button class="btn" onclick="restartGame()">Jogar novamente</button>
+    <div style="text-align:center; display:flex; gap:16px; justify-content:center; flex-wrap:wrap">
+      <button class="btn" onclick="restartCase()">Jogar novamente</button>
+      <button class="btn" onclick="goToSelect()">Escolher outro caso</button>
     </div>
   </div>
- 
+
 </div>
- 
 <script src="script.js"></script>
 </body>
-</html
+</html>

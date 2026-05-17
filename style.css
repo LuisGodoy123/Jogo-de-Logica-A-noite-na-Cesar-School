@@ -306,3 +306,67 @@ h1 {
 .progress-bar { width: 100%; height: 2px; background: var(--border2); margin-bottom: 40px; }
 .progress-fill { height: 100%; background: var(--gold); transition: width 0.5s ease; }
 .step-indicator { text-align: right; font-size: 12px; color: var(--text3); letter-spacing: 0.1em; margin-bottom: 8px; }
+
+.cases-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.case-card {
+  background: var(--card);
+  border: 1px solid var(--border2);
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: pointer;
+  transition: border-color 0.25s, background 0.25s;
+}
+
+.case-card:not(.locked):hover {
+  border-color: var(--gold);
+  background: var(--card2);
+}
+
+.case-card.locked {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.case-number {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.case-icon { font-size: 36px; }
+
+.case-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--gold2);
+  line-height: 1.2;
+}
+
+.case-desc {
+  font-size: 15px;
+  color: var(--text2);
+  line-height: 1.7;
+  flex: 1;
+}
+
+.case-tag {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--text3);
+  text-transform: uppercase;
+}
+
+.case-btn { margin-top: 8px; }
+.case-btn:disabled { opacity: 0.4; cursor: default; }
+.case-btn:disabled:hover { background: transparent; color: var(--gold2); }
