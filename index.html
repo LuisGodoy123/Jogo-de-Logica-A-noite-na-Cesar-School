@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>O Mistério da Cesar School</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="noise"></div>
+<div class="container">
+ 
+  <!-- TELA 1: INTRO -->
+  <div class="screen active" id="screen-intro">
+    <div class="game-header">
+      <div class="eyebrow">Lógica Proposicional — Caso nº 1</div>
+      <h1>A Noite na<br>Cesar School</h1>
+      <p class="subtitle">Nem toda sombra esconde inocência.</p>
+    </div>
+ 
+    <div class="intro-box">
+      <p>23h47. O Brum está quase vazio. A chuva bate forte nas janelas do corredor principal enquanto os últimos alunos ainda finalizam suas apresentações nos andares de cima. Lá embaixo, no silêncio do corredor técnico, o alarme silencioso da <strong style="color:var(--gold2)">sala de cibersegurança</strong> dispara por exatos quatro segundos — e some. Como se nunca tivesse existido.</p>
+      <p>Às 00h12, a professora Diana percebe: o notebook institucional da sala havia desaparecido. Não era um notebook qualquer. Nele estavam meses de trabalho, projetos do semestre inteiro, credenciais de acesso a sistemas internos da escola e dados confidenciais de alunos e professores. <strong style="color:var(--gold2)">Desapareceu sem arrombamento. Sem rastro visível. Sem câmera quebrada.</strong> Alguém sabia exatamente o que estava fazendo — e sabia como não ser visto.</p>
+      <p>A segurança foi acionada. Os acessos foram bloqueados. E uma verdade incômoda veio à tona: <strong style="color:var(--gold2)">oito pessoas estavam no Brum naquela noite</strong>, todas com acesso ao corredor da sala. Oito histórias. Oito alibis. Oito possíveis culpados.</p>
+      <p>Não há impressões digitais. Não há confissão. O que existe são <strong style="color:var(--gold2)">pistas — proposições lógicas</strong> coletadas pelos investigadores nas primeiras horas após o crime. Cada uma delas é um fragmento da verdade. Juntas, elas formam uma cadeia irrefutável de raciocínio.</p>
+      <p style="color:var(--text2); font-style:italic;">Sua missão: analisar cada pista com frieza, aplicar as regras de inferência e identificar o único nome que a lógica não consegue descartar. O culpado cometeu um erro — deixou rastros no raciocínio. Encontre-os.</p>
+    </div>
+ 
+    <div class="ornament">✦ ✦ ✦</div>
+ 
+    <div class="suspects-grid">
+      <div class="suspect-card"><span class="suspect-icon">👩‍🎓</span><span class="suspect-name">Ana</span><span class="suspect-role">Aluna</span></div>
+      <div class="suspect-card"><span class="suspect-icon">🧑‍💻</span><span class="suspect-name">Bruno</span><span class="suspect-role">Monitor</span></div>
+      <div class="suspect-card"><span class="suspect-icon">🧑‍🔧</span><span class="suspect-name">Carlos</span><span class="suspect-role">Técnico de TI</span></div>
+      <div class="suspect-card"><span class="suspect-icon">👩‍🏫</span><span class="suspect-name">Diana</span><span class="suspect-role">Professora</span></div>
+      <div class="suspect-card"><span class="suspect-icon">👨‍🏫</span><span class="suspect-name">Eduardo</span><span class="suspect-role">Professor</span></div>
+      <div class="suspect-card"><span class="suspect-icon">👩‍💼</span><span class="suspect-name">Fernanda</span><span class="suspect-role">Coordenadora</span></div>
+      <div class="suspect-card"><span class="suspect-icon">💂</span><span class="suspect-name">Gabriel</span><span class="suspect-role">Segurança</span></div>
+      <div class="suspect-card"><span class="suspect-icon">👩‍📚</span><span class="suspect-name">Helena</span><span class="suspect-role">Recepcionista</span></div>
+    </div>
+ 
+    <div style="text-align:center">
+      <button class="btn" onclick="goTo('screen-clues')">Iniciar Investigação →</button>
+    </div>
+  </div>
+ 
+  <!-- TELA 2: PISTAS -->
+  <div class="screen" id="screen-clues">
+    <div class="step-indicator">ETAPA 1 DE 3 — ANÁLISE DAS PISTAS</div>
+    <div class="progress-bar"><div class="progress-fill" style="width:33%"></div></div>
+ 
+    <div class="section-label">Suspeitos</div>
+    <div class="suspects-grid">
+      <div class="suspect-card" id="s-ana"><span class="suspect-icon">👩‍🎓</span><span class="suspect-name">Ana</span><span class="suspect-role">Aluna</span></div>
+      <div class="suspect-card" id="s-bruno"><span class="suspect-icon">🧑‍💻</span><span class="suspect-name">Bruno</span><span class="suspect-role">Monitor</span></div>
+      <div class="suspect-card" id="s-carlos"><span class="suspect-icon">🧑‍🔧</span><span class="suspect-name">Carlos</span><span class="suspect-role">Técnico de TI</span></div>
+      <div class="suspect-card" id="s-diana"><span class="suspect-icon">👩‍🏫</span><span class="suspect-name">Diana</span><span class="suspect-role">Professora</span></div>
+      <div class="suspect-card" id="s-eduardo"><span class="suspect-icon">👨‍🏫</span><span class="suspect-name">Eduardo</span><span class="suspect-role">Professor</span></div>
+      <div class="suspect-card" id="s-fernanda"><span class="suspect-icon">👩‍💼</span><span class="suspect-name">Fernanda</span><span class="suspect-role">Coordenadora</span></div>
+      <div class="suspect-card" id="s-gabriel"><span class="suspect-icon">💂</span><span class="suspect-name">Gabriel</span><span class="suspect-role">Segurança</span></div>
+      <div class="suspect-card" id="s-helena"><span class="suspect-icon">👩‍📚</span><span class="suspect-name">Helena</span><span class="suspect-role">Recepcionista</span></div>
+    </div>
+ 
+    <div class="section-label">Pistas do caso</div>
+    <ul class="clue-list" id="clue-list"></ul>
+ 
+    <div id="reveal-btn-area" style="text-align:center; margin-bottom:32px">
+      <button class="btn" onclick="revealNextClue()">Revelar próxima pista</button>
+    </div>
+ 
+    <div id="proceed-area" style="text-align:center; display:none">
+      <div class="ornament" style="margin-bottom:24px">✦ ✦ ✦</div>
+      <p style="color:var(--text2); margin-bottom:24px; font-style:italic">Todas as pistas foram reveladas. Está pronto para analisar a lógica?</p>
+      <button class="btn" onclick="goTo('screen-logic')">Ver análise lógica →</button>
+    </div>
+  </div>
+ 
+  <!-- TELA 3: LÓGICA -->
+  <div class="screen" id="screen-logic">
+    <div class="step-indicator">ETAPA 2 DE 3 — ANÁLISE FORMAL</div>
+    <div class="progress-bar"><div class="progress-fill" style="width:66%"></div></div>
+ 
+    <div class="section-label">Legenda das proposições</div>
+    <div class="notation-box">
+      P = Ana estava na sala de cibersegurança no momento do crime<br>
+      Q = Bruno estava na sala de cibersegurança no momento do crime<br>
+      R = Carlos estava na sala de cibersegurança no momento do crime<br>
+      S = Diana estava na sala de cibersegurança no momento do crime<br>
+      T = Eduardo estava na sala de cibersegurança no momento do crime<br>
+      U = Fernanda estava na sala de cibersegurança no momento do crime<br>
+      V = Gabriel estava na sala de cibersegurança no momento do crime<br>
+      W = Helena estava na sala de cibersegurança no momento do crime<br>
+      <br>
+      <span style="color:var(--text2)">Apenas quem estava na sala de cibersegurança poderia ter roubado o notebook.</span>
+    </div>
+ 
+    <div class="section-label">Tabela de inferências</div>
+    <table class="logic-table">
+      <thead>
+        <tr>
+          <th>Pista</th>
+          <th>Notação Formal</th>
+          <th>Regra</th>
+          <th>Conclusão</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="color:var(--text)">Se Ana estava, Bruno também estava</td>
+          <td><span class="tag-prop">P → Q</span></td>
+          <td>—</td>
+          <td style="color:var(--text3)">Premissa</td>
+        </tr>
+        <tr>
+          <td style="color:var(--text)">Bruno não estava na sala de cibersegurança</td>
+          <td><span class="tag-prop">¬Q</span></td>
+          <td>—</td>
+          <td style="color:var(--text3)">Premissa</td>
+        </tr>
+        <tr>
+          <td style="color:var(--gold2)">Portanto, Ana não estava</td>
+          <td><span class="tag-prop">¬P</span></td>
+          <td><span class="tag-rule">Modus Tollens</span></td>
+          <td style="color:#e07070">Ana eliminada ✗</td>
+        </tr>
+        <tr>
+          <td style="color:var(--text)">Se Diana estava, Ana também estava</td>
+          <td><span class="tag-prop">S → P</span></td>
+          <td>—</td>
+          <td style="color:var(--text3)">Premissa</td>
+        </tr>
+        <tr>
+          <td style="color:var(--gold2)">Como Ana não estava, Diana não estava</td>
+          <td><span class="tag-prop">¬S</span></td>
+          <td><span class="tag-rule">Modus Tollens</span></td>
+          <td style="color:#e07070">Diana eliminada ✗</td>
+        </tr>
+        <tr>
+          <td style="color:var(--text)">Se Fernanda estava, Diana também estava</td>
+          <td><span class="tag-prop">U → S</span></td>
+          <td>—</td>
+          <td style="color:var(--text3)">Premissa</td>
+        </tr>
+        <tr>
+          <td style="color:var(--gold2)">Como Diana não estava, Fernanda não estava</td>
+          <td><span class="tag-prop">¬U</span></td>
+          <td><span class="tag-rule">Modus Tollens</span></td>
+          <td style="color:#e07070">Fernanda eliminada ✗</td>
+        </tr>
+        <tr>
+          <td style="color:var(--text)">Eduardo estava ou Ana estava na sala de cibersegurança</td>
+          <td><span class="tag-prop">T ∨ P</span></td>
+          <td>—</td>
+          <td style="color:var(--text3)">Premissa</td>
+        </tr>
+        <tr>
+          <td style="color:var(--gold2)">Como Ana não estava, Eduardo estava</td>
+          <td><span class="tag-prop">T</span></td>
+          <td><span class="tag-rule">Sil. Disjuntivo</span></td>
+          <td style="color:var(--text3)">Eduardo presente</td>
+        </tr>
+        <tr>
+          <td style="color:var(--text)">Se Eduardo estava, Carlos também estava</td>
+          <td><span class="tag-prop">T → R</span></td>
+          <td>—</td>
+          <td style="color:var(--text3)">Premissa</td>
+        </tr>
+        <tr>
+          <td style="color:var(--gold2)">Como Eduardo estava, Carlos também estava</td>
+          <td><span class="tag-prop">R</span></td>
+          <td><span class="tag-rule">Modus Ponens</span></td>
+          <td style="color:var(--text3)">Carlos presente</td>
+        </tr>
+        <tr>
+          <td style="color:var(--text)">Eduardo tem álibi confirmado — não poderia ter agido</td>
+          <td><span class="tag-prop">¬culpado(T)</span></td>
+          <td>—</td>
+          <td style="color:#e07070">Eduardo eliminado ✗</td>
+        </tr>
+        <tr>
+          <td style="color:var(--text)">Helena estava na sala de cibersegurança ou Gabriel estava</td>
+          <td><span class="tag-prop">W ∨ V</span></td>
+          <td>—</td>
+          <td style="color:var(--text3)">Premissa</td>
+        </tr>
+        <tr>
+          <td style="color:var(--text)">Se Helena estava, então Bruno também estava</td>
+          <td><span class="tag-prop">W → Q</span></td>
+          <td>—</td>
+          <td style="color:var(--text3)">Premissa</td>
+        </tr>
+        <tr>
+          <td style="color:var(--gold2)">Como Bruno não estava, Helena não estava</td>
+          <td><span class="tag-prop">¬W</span></td>
+          <td><span class="tag-rule">Modus Tollens</span></td>
+          <td style="color:#e07070">Helena eliminada ✗</td>
+        </tr>
+        <tr>
+          <td style="color:var(--gold2)">Como Helena não estava, Gabriel estava</td>
+          <td><span class="tag-prop">V</span></td>
+          <td><span class="tag-rule">Sil. Disjuntivo</span></td>
+          <td style="color:var(--text3)">Gabriel presente</td>
+        </tr>
+        <tr>
+          <td style="color:var(--text)">Gabriel estava de plantão — é o responsável pela segurança, não pelo furto</td>
+          <td><span class="tag-prop">¬culpado(V)</span></td>
+          <td>—</td>
+          <td style="color:#e07070">Gabriel eliminado ✗</td>
+        </tr>
+        <tr>
+          <td style="color:var(--text)">Apenas quem estava na sala poderia ser culpado</td>
+          <td><span class="tag-prop">R → culpado(R)</span></td>
+          <td>—</td>
+          <td style="color:var(--text3)">Premissa</td>
+        </tr>
+        <tr style="background: rgba(224,108,0,0.07)">
+          <td style="color:var(--gold2); font-weight:600">Carlos é o culpado</td>
+          <td><span class="tag-prop">culpado(Carlos)</span></td>
+          <td><span class="tag-rule">Modus Ponens</span></td>
+          <td style="color:var(--gold2); font-weight:600">✦ Q.E.D.</td>
+        </tr>
+      </tbody>
+    </table>
+ 
+    <div style="text-align:center; margin-top:32px">
+      <button class="btn" onclick="goTo('screen-answer')">Fazer minha acusação →</button>
+    </div>
+  </div>
+ 
+  <!-- TELA 4: RESPOSTA -->
+  <div class="screen" id="screen-answer">
+    <div class="step-indicator">ETAPA 3 DE 3 — ACUSAÇÃO FINAL</div>
+    <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
+ 
+    <div class="intro-box" style="margin-bottom:36px">
+      <p>Com base nas pistas analisadas e nas regras de inferência aplicadas, quem você acusa pelo roubo do notebook da Cesar School?</p>
+    </div>
+ 
+    <div class="tries-info">Tentativas restantes: <strong style="color:var(--gold2)" id="tries-count">3</strong></div>
+ 
+    <div class="choice-grid" id="choice-grid">
+      <button class="choice-btn" onclick="makeChoice('Ana')">👩‍🎓<br>Ana</button>
+      <button class="choice-btn" onclick="makeChoice('Bruno')">🧑‍💻<br>Bruno</button>
+      <button class="choice-btn" onclick="makeChoice('Carlos')">🧑‍🔧<br>Carlos</button>
+      <button class="choice-btn" onclick="makeChoice('Diana')">👩‍🏫<br>Diana</button>
+      <button class="choice-btn" onclick="makeChoice('Eduardo')">👨‍🏫<br>Eduardo</button>
+      <button class="choice-btn" onclick="makeChoice('Fernanda')">👩‍💼<br>Fernanda</button>
+      <button class="choice-btn" onclick="makeChoice('Gabriel')">💂<br>Gabriel</button>
+      <button class="choice-btn" onclick="makeChoice('Helena')">👩<br>Helena</button>
+    </div>
+ 
+    <div id="feedback-msg" style="text-align:center; color:#e07070; font-style:italic; margin-bottom:16px; min-height:24px"></div>
+  </div>
+ 
+  <!-- TELA 5: RESULTADO -->
+  <div class="screen" id="screen-result">
+    <div id="result-content"></div>
+    <div style="text-align:center">
+      <button class="btn" onclick="restartGame()">Jogar novamente</button>
+    </div>
+  </div>
+ 
+</div>
+ 
+<script src="script.js"></script>
+</body>
+</html
