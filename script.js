@@ -288,10 +288,6 @@ function revealNextClue(silent = false) {
     autoRevealInterval = null;
     document.getElementById('reveal-btn-area').style.display = 'none';
     document.getElementById('proceed-area').style.display = 'block';
-    cases[currentCase].eliminatedOnFinish.forEach(id => {
-      const el = document.getElementById(id);
-      if (el) el.classList.add('eliminated');
-    });
   }
 }
 
