@@ -27,25 +27,45 @@ const cases = {
       { letter: 'Q', meaning: 'Bruno estava na sala de cibersegurança' },
       { letter: 'R', meaning: 'Carlos estava na sala de cibersegurança' },
       { letter: 'S', meaning: 'Diana estava na sala de cibersegurança' },
+      { letter: 'T', meaning: 'Eduardo estava na sala de cibersegurança' },
+      { letter: 'U', meaning: 'Fernanda estava na sala de cibersegurança' },
+      { letter: 'V', meaning: 'Gabriel estava na sala de cibersegurança' },
+      { letter: 'W', meaning: 'Helena estava na sala de cibersegurança' },
     ],
     suspects: [
-      { id: 's1-ana',    icon: '👩‍🎓', name: 'Ana',    role: 'Aluna' },
-      { id: 's1-bruno',  icon: '🧑‍💻', name: 'Bruno',  role: 'Monitor' },
-      { id: 's1-carlos', icon: '🧑‍🔧', name: 'Carlos', role: 'Técnico de TI' },
-      { id: 's1-diana',  icon: '👩‍🏫', name: 'Diana',  role: 'Professora' },
+      { id: 's1-ana',      icon: '👩‍🎓', name: 'Ana',      role: 'Aluna' },
+      { id: 's1-bruno',    icon: '🧑‍💻', name: 'Bruno',    role: 'Monitor' },
+      { id: 's1-carlos',   icon: '🧑‍🔧', name: 'Carlos',   role: 'Técnico de TI' },
+      { id: 's1-diana',    icon: '👩‍🏫', name: 'Diana',    role: 'Professora' },
+      { id: 's1-eduardo',  icon: '👨‍🏫', name: 'Eduardo',  role: 'Professor' },
+      { id: 's1-fernanda', icon: '👩‍💼', name: 'Fernanda', role: 'Coordenadora' },
+      { id: 's1-gabriel',  icon: '💂',  name: 'Gabriel',  role: 'Segurança' },
+      { id: 's1-helena',   icon: '👩‍📚', name: 'Helena',   role: 'Recepcionista' },
     ],
     clues: [
       { text: '"Se Ana estava na sala de cibersegurança, então Bruno, o monitor, também estava."', logic: 'P → Q', rule: 'Proposição condicional' },
       { text: '"Bruno saiu mais cedo e não estava na sala de cibersegurança naquela noite."', logic: '¬Q', rule: 'Negação simples' },
       { text: '"Se Diana estava na sala de cibersegurança, então Ana também estava — ela nunca ficava sozinha."', logic: 'S → P', rule: 'Proposição condicional' },
-      { text: '"Uma testemunha confirmou: Carlos ou Diana estava no corredor da sala de cibersegurança naquela noite."', logic: 'R ∨ S', rule: 'Proposição disjuntiva' },
-      { text: '"O notebook só poderia ter sido roubado por quem estava na sala de cibersegurança naquela noite."', logic: 'R → culpado(R)', rule: 'Regra do caso' },
+      { text: '"Fernanda, a coordenadora, só ficava após o horário se Diana também ficasse."', logic: 'U → S', rule: 'Proposição condicional' },
+      { text: '"Uma testemunha viu ou Eduardo ou Ana no corredor da sala de cibersegurança — um dos dois estava lá."', logic: 'T ∨ P', rule: 'Proposição disjuntiva' },
+      { text: '"Se Eduardo estava no Brum, ele sempre passava pela sala de cibersegurança para checar os equipamentos."', logic: 'T → R', rule: 'Proposição condicional' },
+      { text: '"Eduardo tem álibi confirmado: estava em reunião gravada com a direção e não poderia ter agido."', logic: '¬culpado(T)', rule: 'Negação — eliminação direta' },
+      { text: '"A câmera do corredor registrou: Helena ou Gabriel estava na sala de cibersegurança naquela noite."', logic: 'W ∨ V', rule: 'Proposição disjuntiva' },
+      { text: '"Se Helena estava na sala de cibersegurança, Bruno obrigatoriamente também estaria — ela nunca entrava sem o monitor."', logic: 'W → Q', rule: 'Proposição condicional' },
+      { text: '"Gabriel estava de plantão como segurança — seu registro de ronda exclui qualquer envolvimento no furto."', logic: '¬culpado(V)', rule: 'Negação — eliminação direta' },
+      { text: '"O notebook só poderia ter sido roubado por quem estava na sala de cibersegurança naquela noite."', logic: 'R → culpado(R)', rule: 'Regra do caso' }
     ],
-    eliminatedOnFinish: ['s1-ana', 's1-bruno', 's1-diana'],
+    eliminatedOnFinish: ['s1-ana','s1-bruno','s1-diana','s1-fernanda','s1-eduardo','s1-helena','s1-gabriel'],
     successText: `Excelente dedução! <strong style="color:var(--green2)">Carlos, o técnico de TI</strong>, roubou o notebook da Cesar School.<br><br>
       <em>Modus Tollens</em> (P→Q, ¬Q) → Ana eliminada.<br>
       <em>Modus Tollens</em> (S→P, ¬P) → Diana eliminada.<br>
-      <em>Silogismo Disjuntivo</em> (R∨S, ¬S) → Carlos presente.<br>
+      <em>Modus Tollens</em> (U→S, ¬S) → Fernanda eliminada.<br>
+      <em>Silogismo Disjuntivo</em> (T∨P, ¬P) → Eduardo presente.<br>
+      <em>Modus Ponens</em> (T→R, T) → Carlos presente.<br>
+      <em>Negação direta</em> → Eduardo eliminado.<br>
+      <em>Modus Tollens</em> (W→Q, ¬Q) → Helena eliminada.<br>
+      <em>Silogismo Disjuntivo</em> (W∨V, ¬W) → Gabriel presente.<br>
+      <em>Negação direta</em> → Gabriel eliminado.<br>
       <em>Modus Ponens</em> (R→culpado, R) → Carlos é o culpado.`,
     failureText: `Suas tentativas se esgotaram. O culpado era <strong style="color:#e07070">Carlos, o técnico de TI</strong>.<br><br>Revise a tabela de inferências para entender o raciocínio completo.`
   },
@@ -57,23 +77,35 @@ const cases = {
     propositions: [
       { letter: 'A', meaning: 'Marcos estava na sala de estudos' },
       { letter: 'B', meaning: 'Lívia estava na sala de estudos' },
-      { letter: 'C', meaning: 'Sônia estava na sala de estudos' },
+      { letter: 'C', meaning: 'Roberto estava na sala de estudos' },
+      { letter: 'D', meaning: 'Patrícia estava na sala de estudos' },
+      { letter: 'E', meaning: 'Caio estava na sala de estudos' },
+      { letter: 'F', meaning: 'Sônia estava na sala de estudos' },
     ],
     suspects: [
-      { id: 's2-marcos', icon: '🧑‍🎓', name: 'Marcos', role: 'Aluno Veterano' },
-      { id: 's2-livia',  icon: '👩‍💻', name: 'Lívia',  role: 'Monitora' },
-      { id: 's2-sonia',  icon: '📚',  name: 'Sônia',  role: 'Bibliotecária' },
+      { id: 's2-marcos',   icon: '🧑‍🎓', name: 'Marcos',   role: 'Aluno Veterano' },
+      { id: 's2-livia',    icon: '👩‍💻', name: 'Lívia',    role: 'Monitora' },
+      { id: 's2-roberto',  icon: '🧹',  name: 'Roberto',  role: 'Zelador' },
+      { id: 's2-patricia', icon: '👩‍🏫', name: 'Patrícia', role: 'Prof. de Filosofia' },
+      { id: 's2-caio',     icon: '🎬',  name: 'Caio',     role: 'Técnico AV' },
+      { id: 's2-sonia',    icon: '📚',  name: 'Sônia',    role: 'Bibliotecária' },
     ],
     clues: [
-      { text: '"Se Marcos estava na sala de estudos, então Sônia também estava — ela sempre o acompanhava nos turnos noturnos."', logic: 'A → C', rule: 'Proposição condicional' },
-      { text: '"O registro de ponto de Sônia é claro: ela encerrou seu turno às 21h30 e não retornou ao Brum naquela noite."', logic: '¬C', rule: 'Negação simples' },
-      { text: '"A câmera do corredor captou uma sombra entrando na sala de estudos. Os investigadores concluíram: era Marcos ou Lívia."', logic: 'A ∨ B', rule: 'Proposição disjuntiva' },
-      { text: '"O laudo pericial é conclusivo: o crime só poderia ter sido cometido por alguém que estava fisicamente na sala de estudos naquela noite."', logic: 'B → culpado(B)', rule: 'Regra do caso' },
+      { text: '"Se Marcos estava na sala de estudos, então Sônia, a bibliotecária, também estava — ela sempre o acompanhava nos turnos noturnos."', logic: 'A → F', rule: 'Proposição condicional' },
+      { text: '"O registro de ponto de Sônia é claro: ela encerrou seu turno às 21h30 e não retornou ao Brum naquela noite."', logic: '¬F', rule: 'Negação simples' },
+      { text: '"Caio, o técnico de audiovisual, só montava equipamentos na sala de estudos quando Marcos estava presente para supervisionar."', logic: 'E → A', rule: 'Proposição condicional' },
+      { text: '"Patrícia só permanecia no campus após as 22h quando Marcos também estava — ela aguardava orientação de alunos sob supervisão."', logic: 'D → A', rule: 'Proposição condicional' },
+      { text: '"A câmera do corredor captou uma sombra entrando na sala de estudos. Os investigadores concluíram: era Roberto ou Lívia."', logic: 'C ∨ B', rule: 'Proposição disjuntiva' },
+      { text: '"Roberto, o zelador, tinha uma regra de segurança: nunca ficava no terceiro andar sem Sônia — ela era a responsável pelas chaves do andar."', logic: 'C → F', rule: 'Proposição condicional' },
+      { text: '"O laudo pericial é conclusivo: o crime só poderia ter sido cometido por alguém que estava fisicamente na sala de estudos naquela noite."', logic: 'B → culpado(B)', rule: 'Regra do caso' }
     ],
-    eliminatedOnFinish: ['s2-marcos', 's2-sonia'],
+    eliminatedOnFinish: ['s2-marcos','s2-roberto','s2-patricia','s2-caio','s2-sonia'],
     successText: `Dedução impecável! <strong style="color:var(--green2)">Lívia, a monitora</strong>, assassinou Thiago na sala de estudos.<br><br>
-      <em>Modus Tollens</em> (A→C, ¬C) → Marcos eliminado.<br>
-      <em>Silogismo Disjuntivo</em> (A∨B, ¬A) → Lívia estava na sala.<br>
+      <em>Modus Tollens</em> (A→F, ¬F) → Marcos eliminado.<br>
+      <em>Modus Tollens</em> (E→A, ¬A) → Caio eliminado.<br>
+      <em>Modus Tollens</em> (D→A, ¬A) → Patrícia eliminada.<br>
+      <em>Modus Tollens</em> (C→F, ¬F) → Roberto eliminado.<br>
+      <em>Silogismo Disjuntivo</em> (C∨B, ¬C) → Lívia estava na sala.<br>
       <em>Modus Ponens</em> (B→culpado, B) → Lívia é a culpada.`,
     failureText: `Suas tentativas se esgotaram. A culpada era <strong style="color:#e07070">Lívia, a monitora</strong>.<br><br>Revise a tabela de inferências para entender o raciocínio completo.`
   },
@@ -84,29 +116,33 @@ const cases = {
     logicScreen: 'screen-logic-3',
     propositions: [
       { letter: 'P', meaning: 'Igor estava no corredor da coordenação' },
-      { letter: 'Q', meaning: 'Renata estava no corredor da coordenação' },
-      { letter: 'R', meaning: 'Tiago estava no corredor da coordenação' },
-      { letter: 'S', meaning: 'Cíntia estava no corredor da coordenação' },
+      { letter: 'Q', meaning: 'Valdete estava no corredor da coordenação' },
+      { letter: 'R', meaning: 'Renata estava no corredor da coordenação' },
+      { letter: 'S', meaning: 'Tiago estava no corredor da coordenação' },
+      { letter: 'T', meaning: 'Cíntia estava no corredor da coordenação' },
     ],
     suspects: [
-      { id: 's3-renata', icon: '👩‍💼', name: 'Renata', role: 'Secretária Pedagógica' },
-      { id: 's3-igor',   icon: '🧑‍🎓', name: 'Igor',   role: 'Aluno Repetente' },
-      { id: 's3-tiago',  icon: '🔧',  name: 'Tiago',  role: 'Técnico de Manutenção' },
-      { id: 's3-cintia', icon: '👩‍🏫', name: 'Cíntia', role: 'Coordenadora Adj.' },
+      { id: 's3-renata',  icon: '👩‍💼', name: 'Renata',  role: 'Secretária Pedagógica' },
+      { id: 's3-igor',    icon: '🧑‍🎓', name: 'Igor',    role: 'Aluno Repetente' },
+      { id: 's3-valdete', icon: '🧹',  name: 'Valdete', role: 'Zeladora Noturna' },
+      { id: 's3-tiago',   icon: '🔧',  name: 'Tiago',   role: 'Técnico de Manutenção' },
+      { id: 's3-cintia',  icon: '👩‍🏫', name: 'Cíntia',  role: 'Coordenadora Adj.' },
     ],
     clues: [
-      { text: '"Se Igor estava no corredor da coordenação, então Tiago também estava — protocolo de segurança para trabalhos noturnos."', logic: 'P → R', rule: 'Proposição condicional' },
-      { text: '"O cartão de ponto de Tiago registra saída às 22h. Ele não estava no corredor naquela madrugada."', logic: '¬R', rule: 'Negação simples' },
-      { text: '"Cíntia, a coordenadora adjunta, só permanecia além da meia-noite quando Igor estava no setor."', logic: 'S → P', rule: 'Proposição condicional' },
-      { text: '"O log do sistema de acesso: ou Renata ou Cíntia utilizou a senha mestra para abrir o corredor naquela madrugada."', logic: 'Q ∨ S', rule: 'Proposição disjuntiva' },
-      { text: '"A prova só poderia ter sido retirada por quem tinha acesso ao sistema de arquivos pedagógico — e apenas Renata possuía essa senha naquela semana."', logic: 'Q → culpado(Q)', rule: 'Regra do caso' },
+      { text: '"Se Igor estava no corredor da coordenação, então Valdete, a zeladora noturna, também estava — ela nunca deixava alunos circularem sozinhos após meia-noite."', logic: 'P → Q', rule: 'Proposição condicional' },
+      { text: '"O cartão de ponto de Valdete registra saída às 23h45. Ela não estava no corredor da coordenação naquela madrugada."', logic: '¬Q', rule: 'Negação simples' },
+      { text: '"Tiago, o técnico de manutenção, só entrava na ala da coordenação quando Igor estava presente — protocolo de segurança para trabalhos noturnos."', logic: 'S → P', rule: 'Proposição condicional' },
+      { text: '"Cíntia, a coordenadora adjunta, só permanecia além da meia-noite quando Tiago estava realizando manutenção emergencial no setor."', logic: 'T → S', rule: 'Proposição condicional' },
+      { text: '"O log do sistema de acesso é claro: ou Renata ou Cíntia utilizou a senha mestra para abrir o corredor da coordenação naquela madrugada."', logic: 'R ∨ T', rule: 'Proposição disjuntiva' },
+      { text: '"O perito constatou: a prova só poderia ter sido retirada por quem tinha acesso ao sistema de arquivos pedagógico — e apenas Renata possuía essa senha naquela semana."', logic: 'R → culpado(R)', rule: 'Regra do caso' }
     ],
-    eliminatedOnFinish: ['s3-igor', 's3-tiago', 's3-cintia'],
+    eliminatedOnFinish: ['s3-igor', 's3-valdete', 's3-tiago', 's3-cintia'],
     successText: `Raciocínio preciso! <strong style="color:var(--green2)">Renata, a secretária pedagógica</strong>, furtou a prova final de POO.<br><br>
-      <em>Modus Tollens</em> (P→R, ¬R) → Igor eliminado.<br>
-      <em>Modus Tollens</em> (S→P, ¬P) → Cíntia eliminada.<br>
-      <em>Silogismo Disjuntivo</em> (Q∨S, ¬S) → Renata presente.<br>
-      <em>Modus Ponens</em> (Q→culpado, Q) → Renata é a culpada.`,
+      <em>Modus Tollens</em> (P→Q, ¬Q) → Igor eliminado.<br>
+      <em>Modus Tollens</em> (S→P, ¬P) → Tiago eliminado.<br>
+      <em>Modus Tollens</em> (T→S, ¬S) → Cíntia eliminada.<br>
+      <em>Silogismo Disjuntivo</em> (R∨T, ¬T) → Renata presente.<br>
+      <em>Modus Ponens</em> (R→culpado, R) → Renata é a culpada.`,
     failureText: `Suas tentativas se esgotaram. A culpada era <strong style="color:#e07070">Renata, a secretária pedagógica</strong>.<br><br>Revise a tabela de inferências para entender o raciocínio completo.`
   },
 
@@ -116,29 +152,38 @@ const cases = {
     logicScreen: 'screen-logic-4',
     propositions: [
       { letter: 'A', meaning: 'Marina estava na sala do servidor' },
-      { letter: 'B', meaning: 'Fábio estava na sala do servidor' },
-      { letter: 'C', meaning: 'Davi estava na sala do servidor' },
-      { letter: 'D', meaning: 'Priscila estava na sala do servidor' },
+      { letter: 'B', meaning: 'Kelvin estava na sala do servidor' },
+      { letter: 'C', meaning: 'Norma estava na sala do servidor' },
+      { letter: 'D', meaning: 'Davi estava na sala do servidor' },
+      { letter: 'E', meaning: 'Priscila estava na sala do servidor' },
+      { letter: 'F', meaning: 'Fábio estava na sala do servidor' },
     ],
     suspects: [
       { id: 's4-fabio',    icon: '👨‍💻', name: 'Fábio',    role: 'Estagiário de TI' },
       { id: 's4-marina',   icon: '👩‍🔬', name: 'Marina',   role: 'Professora de Redes' },
+      { id: 's4-kelvin',   icon: '🧑‍🎓', name: 'Kelvin',   role: 'Aluno Formando' },
+      { id: 's4-norma',    icon: '👩‍💼', name: 'Norma',    role: 'Diretora Acadêmica' },
       { id: 's4-davi',     icon: '👷',  name: 'Davi',     role: 'Eletricista Contratado' },
       { id: 's4-priscila', icon: '📋',  name: 'Priscila', role: 'Assist. Administrativa' },
     ],
     clues: [
-      { text: '"Se Marina estava na sala do servidor, então Davi também estava — protocolo de acompanhamento técnico para visitas à infraestrutura."', logic: 'A → C', rule: 'Proposição condicional' },
-      { text: '"O registro eletrônico é claro: Davi não entrou na sala do servidor naquela noite."', logic: '¬C', rule: 'Negação simples' },
-      { text: '"Priscila só acessava a sala do servidor para acompanhar o trabalho elétrico contratado — sem Davi presente, ela não teria motivo para estar lá."', logic: 'D → C', rule: 'Proposição condicional' },
-      { text: '"O log de crachá registrou apenas duas entradas válidas naquela janela de tempo: Fábio ou Priscila entrou na sala do servidor."', logic: 'B ∨ D', rule: 'Proposição disjuntiva' },
-      { text: '"O perito confirmou: a sabotagem foi cometida por quem estava fisicamente na sala e tinha conhecimento técnico para contornar o sistema de UPS."', logic: 'B → culpado(B)', rule: 'Regra do caso' },
+      { text: '"Se Marina estava na sala do servidor, então Kelvin também estava — ela nunca entrava em áreas restritas sem um aluno designado como acompanhante."', logic: 'A → B', rule: 'Proposição condicional' },
+      { text: '"Kelvin estava no auditório realizando sua apresentação de portfólio naquele exato momento — há gravação ao vivo que confirma."', logic: '¬B', rule: 'Negação simples' },
+      { text: '"Se Norma estava na sala do servidor, então Marina também estava — protocolo da direção exigia acompanhamento técnico em todas as visitas."', logic: 'C → A', rule: 'Proposição condicional' },
+      { text: '"Davi, o eletricista contratado, só podia acessar a sala do servidor se Norma estivesse presente para autorizar a entrada — exigência contratual."', logic: 'D → C', rule: 'Proposição condicional' },
+      { text: '"Priscila estava na sala do servidor exclusivamente para acompanhar o trabalho elétrico contratado — sem Davi, ela não teria motivo para estar lá."', logic: 'E → D', rule: 'Proposição condicional' },
+      { text: '"O log de acesso por crachá registrou apenas duas entradas válidas naquela janela de tempo: ou Priscila ou Fábio entrou na sala do servidor."', logic: 'E ∨ F', rule: 'Proposição disjuntiva' },
+      { text: '"Priscila tem álibi irrefutável: estava registrada na recepção do evento recebendo convidados durante todo o período em que o servidor foi derrubado."', logic: '¬E', rule: 'Negação — eliminação direta' },
+      { text: '"O perito confirmou: a sabotagem foi cometida por quem estava fisicamente na sala do servidor e tinha conhecimento técnico para contornar o sistema de UPS."', logic: 'F → culpado(F)', rule: 'Regra do caso' }
     ],
-    eliminatedOnFinish: ['s4-marina', 's4-davi', 's4-priscila'],
+    eliminatedOnFinish: ['s4-marina', 's4-kelvin', 's4-norma', 's4-davi', 's4-priscila'],
     successText: `Investigação brilhante! <strong style="color:var(--green2)">Fábio, o estagiário de TI</strong>, sabotou o servidor durante a noite de portfólios.<br><br>
-      <em>Modus Tollens</em> (A→C, ¬C) → Marina eliminada.<br>
-      <em>Modus Tollens</em> (D→C, ¬C) → Priscila eliminada.<br>
-      <em>Silogismo Disjuntivo</em> (B∨D, ¬D) → Fábio presente.<br>
-      <em>Modus Ponens</em> (B→culpado, B) → Fábio é o culpado.`,
+      <em>Modus Tollens</em> (A→B, ¬B) → Marina eliminada.<br>
+      <em>Modus Tollens</em> (C→A, ¬A) → Norma eliminada.<br>
+      <em>Modus Tollens</em> (D→C, ¬C) → Davi eliminado.<br>
+      <em>Modus Tollens</em> (E→D, ¬D) → Priscila eliminada.<br>
+      <em>Silogismo Disjuntivo</em> (E∨F, ¬E) → Fábio presente.<br>
+      <em>Modus Ponens</em> (F→culpado, F) → Fábio é o culpado.`,
     failureText: `Suas tentativas se esgotaram. O culpado era <strong style="color:#e07070">Fábio, o estagiário de TI</strong>.<br><br>Revise a tabela de inferências para entender o raciocínio completo.`
   }
 };

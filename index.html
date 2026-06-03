@@ -76,6 +76,10 @@
       <div class="suspect-card"><span class="suspect-icon">🧑‍💻</span><span class="suspect-name">Bruno</span><span class="suspect-role">Monitor</span></div>
       <div class="suspect-card"><span class="suspect-icon">🧑‍🔧</span><span class="suspect-name">Carlos</span><span class="suspect-role">Técnico de TI</span></div>
       <div class="suspect-card"><span class="suspect-icon">👩‍🏫</span><span class="suspect-name">Diana</span><span class="suspect-role">Professora</span></div>
+      <div class="suspect-card"><span class="suspect-icon">👨‍🏫</span><span class="suspect-name">Eduardo</span><span class="suspect-role">Professor</span></div>
+      <div class="suspect-card"><span class="suspect-icon">👩‍💼</span><span class="suspect-name">Fernanda</span><span class="suspect-role">Coordenadora</span></div>
+      <div class="suspect-card"><span class="suspect-icon">💂</span><span class="suspect-name">Gabriel</span><span class="suspect-role">Segurança</span></div>
+      <div class="suspect-card"><span class="suspect-icon">👩‍📚</span><span class="suspect-name">Helena</span><span class="suspect-role">Recepcionista</span></div>
     </div>
 
     <div style="text-align:center">
@@ -104,6 +108,9 @@
     <div class="suspects-grid">
       <div class="suspect-card"><span class="suspect-icon">🧑‍🎓</span><span class="suspect-name">Marcos</span><span class="suspect-role">Aluno Veterano</span></div>
       <div class="suspect-card"><span class="suspect-icon">👩‍💻</span><span class="suspect-name">Lívia</span><span class="suspect-role">Monitora</span></div>
+      <div class="suspect-card"><span class="suspect-icon">🧹</span><span class="suspect-name">Roberto</span><span class="suspect-role">Zelador</span></div>
+      <div class="suspect-card"><span class="suspect-icon">👩‍🏫</span><span class="suspect-name">Patrícia</span><span class="suspect-role">Prof. de Filosofia</span></div>
+      <div class="suspect-card"><span class="suspect-icon">🎬</span><span class="suspect-name">Caio</span><span class="suspect-role">Técnico AV</span></div>
       <div class="suspect-card"><span class="suspect-icon">📚</span><span class="suspect-name">Sônia</span><span class="suspect-role">Bibliotecária</span></div>
     </div>
 
@@ -133,6 +140,7 @@
     <div class="suspects-grid">
       <div class="suspect-card"><span class="suspect-icon">👩‍💼</span><span class="suspect-name">Renata</span><span class="suspect-role">Secretária Pedagógica</span></div>
       <div class="suspect-card"><span class="suspect-icon">🧑‍🎓</span><span class="suspect-name">Igor</span><span class="suspect-role">Aluno Repetente</span></div>
+      <div class="suspect-card"><span class="suspect-icon">🧹</span><span class="suspect-name">Valdete</span><span class="suspect-role">Zeladora Noturna</span></div>
       <div class="suspect-card"><span class="suspect-icon">🔧</span><span class="suspect-name">Tiago</span><span class="suspect-role">Técnico de Manutenção</span></div>
       <div class="suspect-card"><span class="suspect-icon">👩‍🏫</span><span class="suspect-name">Cíntia</span><span class="suspect-role">Coordenadora Adj.</span></div>
     </div>
@@ -150,9 +158,10 @@
     <div class="section-label">Legenda das proposições</div>
     <div class="notation-box">
       P = Igor estava no corredor da coordenação naquela madrugada<br>
-      Q = Renata estava no corredor da coordenação naquela madrugada<br>
-      R = Tiago estava no corredor da coordenação naquela madrugada<br>
-      S = Cíntia estava no corredor da coordenação naquela madrugada<br>
+      Q = Valdete estava no corredor da coordenação naquela madrugada<br>
+      R = Renata estava no corredor da coordenação naquela madrugada<br>
+      S = Tiago estava no corredor da coordenação naquela madrugada<br>
+      T = Cíntia estava no corredor da coordenação naquela madrugada<br>
       <br>
       <span style="color:var(--text2)">Apenas quem estava no corredor com acesso ao sistema poderia ter furtado a prova.</span>
     </div>
@@ -165,13 +174,13 @@
         </thead>
         <tbody>
           <tr>
-            <td style="color:var(--text)">Se Igor estava, Tiago também estava (protocolo de segurança)</td>
-            <td><span class="tag-prop">P → R</span></td><td>—</td>
+            <td style="color:var(--text)">Se Igor estava, Valdete também estava</td>
+            <td><span class="tag-prop">P → Q</span></td><td>—</td>
             <td style="color:var(--text3)">Premissa</td>
           </tr>
           <tr>
-            <td style="color:var(--text)">Tiago não estava (ponto registrado às 22h)</td>
-            <td><span class="tag-prop">¬R</span></td><td>—</td>
+            <td style="color:var(--text)">Valdete não estava (ponto registrado às 23h45)</td>
+            <td><span class="tag-prop">¬Q</span></td><td>—</td>
             <td style="color:var(--text3)">Premissa</td>
           </tr>
           <tr>
@@ -181,30 +190,41 @@
             <td style="color:#e07070">Igor eliminado ✗</td>
           </tr>
           <tr>
-            <td style="color:var(--text)">Se Cíntia estava, Igor também estava no setor</td>
+            <td style="color:var(--text)">Se Tiago estava, Igor também estava (protocolo de segurança)</td>
             <td><span class="tag-prop">S → P</span></td><td>—</td>
             <td style="color:var(--text3)">Premissa</td>
           </tr>
           <tr>
-            <td style="color:var(--gold2)">Como Igor não estava, Cíntia não estava</td>
+            <td style="color:var(--gold2)">Como Igor não estava, Tiago não estava</td>
             <td><span class="tag-prop">¬S</span></td>
+            <td><span class="tag-rule">Modus Tollens</span></td>
+            <td style="color:#e07070">Tiago eliminado ✗</td>
+          </tr>
+          <tr>
+            <td style="color:var(--text)">Se Cíntia estava, Tiago estava em manutenção emergencial</td>
+            <td><span class="tag-prop">T → S</span></td><td>—</td>
+            <td style="color:var(--text3)">Premissa</td>
+          </tr>
+          <tr>
+            <td style="color:var(--gold2)">Como Tiago não estava, Cíntia não estava</td>
+            <td><span class="tag-prop">¬T</span></td>
             <td><span class="tag-rule">Modus Tollens</span></td>
             <td style="color:#e07070">Cíntia eliminada ✗</td>
           </tr>
           <tr>
             <td style="color:var(--text)">Ou Renata ou Cíntia usou a senha mestra no corredor</td>
-            <td><span class="tag-prop">Q ∨ S</span></td><td>—</td>
+            <td><span class="tag-prop">R ∨ T</span></td><td>—</td>
             <td style="color:var(--text3)">Premissa</td>
           </tr>
           <tr>
             <td style="color:var(--gold2)">Como Cíntia não estava, Renata estava</td>
-            <td><span class="tag-prop">Q</span></td>
+            <td><span class="tag-prop">R</span></td>
             <td><span class="tag-rule">Sil. Disjuntivo</span></td>
             <td style="color:var(--text3)">Renata presente</td>
           </tr>
           <tr>
             <td style="color:var(--text)">Apenas Renata possuía acesso ao sistema de arquivos pedagógico</td>
-            <td><span class="tag-prop">Q → culpado(Q)</span></td><td>—</td>
+            <td><span class="tag-prop">R → culpado(R)</span></td><td>—</td>
             <td style="color:var(--text3)">Premissa</td>
           </tr>
           <tr class="answer-row" style="background: rgba(224,108,0,0.07)">
@@ -243,6 +263,8 @@
     <div class="suspects-grid">
       <div class="suspect-card"><span class="suspect-icon">👨‍💻</span><span class="suspect-name">Fábio</span><span class="suspect-role">Estagiário de TI</span></div>
       <div class="suspect-card"><span class="suspect-icon">👩‍🔬</span><span class="suspect-name">Marina</span><span class="suspect-role">Professora de Redes</span></div>
+      <div class="suspect-card"><span class="suspect-icon">🧑‍🎓</span><span class="suspect-name">Kelvin</span><span class="suspect-role">Aluno Formando</span></div>
+      <div class="suspect-card"><span class="suspect-icon">👩‍💼</span><span class="suspect-name">Norma</span><span class="suspect-role">Diretora Acadêmica</span></div>
       <div class="suspect-card"><span class="suspect-icon">👷</span><span class="suspect-name">Davi</span><span class="suspect-role">Eletricista Contratado</span></div>
       <div class="suspect-card"><span class="suspect-icon">📋</span><span class="suspect-name">Priscila</span><span class="suspect-role">Assist. Administrativa</span></div>
     </div>
@@ -260,9 +282,11 @@
     <div class="section-label">Legenda das proposições</div>
     <div class="notation-box">
       A = Marina estava na sala do servidor no momento da sabotagem<br>
-      B = Fábio estava na sala do servidor no momento da sabotagem<br>
-      C = Davi estava na sala do servidor no momento da sabotagem<br>
-      D = Priscila estava na sala do servidor no momento da sabotagem<br>
+      B = Kelvin estava na sala do servidor no momento da sabotagem<br>
+      C = Norma estava na sala do servidor no momento da sabotagem<br>
+      D = Davi estava na sala do servidor no momento da sabotagem<br>
+      E = Priscila estava na sala do servidor no momento da sabotagem<br>
+      F = Fábio estava na sala do servidor no momento da sabotagem<br>
       <br>
       <span style="color:var(--text2)">Apenas quem estava fisicamente na sala do servidor poderia ter cometido a sabotagem.</span>
     </div>
@@ -275,13 +299,13 @@
         </thead>
         <tbody>
           <tr>
-            <td style="color:var(--text)">Se Marina estava, Davi também estava (protocolo técnico)</td>
-            <td><span class="tag-prop">A → C</span></td><td>—</td>
+            <td style="color:var(--text)">Se Marina estava, Kelvin também estava</td>
+            <td><span class="tag-prop">A → B</span></td><td>—</td>
             <td style="color:var(--text3)">Premissa</td>
           </tr>
           <tr>
-            <td style="color:var(--text)">Davi não entrou na sala do servidor naquela noite</td>
-            <td><span class="tag-prop">¬C</span></td><td>—</td>
+            <td style="color:var(--text)">Kelvin estava no auditório (gravação ao vivo confirma)</td>
+            <td><span class="tag-prop">¬B</span></td><td>—</td>
             <td style="color:var(--text3)">Premissa</td>
           </tr>
           <tr>
@@ -291,30 +315,52 @@
             <td style="color:#e07070">Marina eliminada ✗</td>
           </tr>
           <tr>
-            <td style="color:var(--text)">Se Priscila estava, Davi também estava (acompanhava o serviço)</td>
+            <td style="color:var(--text)">Se Norma estava, Marina estava (protocolo da direção)</td>
+            <td><span class="tag-prop">C → A</span></td><td>—</td>
+            <td style="color:var(--text3)">Premissa</td>
+          </tr>
+          <tr>
+            <td style="color:var(--gold2)">Como Marina não estava, Norma não estava</td>
+            <td><span class="tag-prop">¬C</span></td>
+            <td><span class="tag-rule">Modus Tollens</span></td>
+            <td style="color:#e07070">Norma eliminada ✗</td>
+          </tr>
+          <tr>
+            <td style="color:var(--text)">Se Davi estava, Norma tinha que estar (exigência contratual)</td>
             <td><span class="tag-prop">D → C</span></td><td>—</td>
             <td style="color:var(--text3)">Premissa</td>
           </tr>
           <tr>
-            <td style="color:var(--gold2)">Como Davi não estava, Priscila não estava</td>
+            <td style="color:var(--gold2)">Como Norma não estava, Davi não estava</td>
             <td><span class="tag-prop">¬D</span></td>
+            <td><span class="tag-rule">Modus Tollens</span></td>
+            <td style="color:#e07070">Davi eliminado ✗</td>
+          </tr>
+          <tr>
+            <td style="color:var(--text)">Se Priscila estava, Davi também estava (acompanhava o serviço elétrico)</td>
+            <td><span class="tag-prop">E → D</span></td><td>—</td>
+            <td style="color:var(--text3)">Premissa</td>
+          </tr>
+          <tr>
+            <td style="color:var(--gold2)">Como Davi não estava, Priscila não estava</td>
+            <td><span class="tag-prop">¬E</span></td>
             <td><span class="tag-rule">Modus Tollens</span></td>
             <td style="color:#e07070">Priscila eliminada ✗</td>
           </tr>
           <tr>
-            <td style="color:var(--text)">Log de crachá: Fábio ou Priscila entrou na sala do servidor</td>
-            <td><span class="tag-prop">B ∨ D</span></td><td>—</td>
+            <td style="color:var(--text)">Log de crachá: Priscila ou Fábio entrou na sala do servidor</td>
+            <td><span class="tag-prop">E ∨ F</span></td><td>—</td>
             <td style="color:var(--text3)">Premissa</td>
           </tr>
           <tr>
             <td style="color:var(--gold2)">Como Priscila não estava, Fábio estava</td>
-            <td><span class="tag-prop">B</span></td>
+            <td><span class="tag-prop">F</span></td>
             <td><span class="tag-rule">Sil. Disjuntivo</span></td>
             <td style="color:var(--text3)">Fábio presente</td>
           </tr>
           <tr>
             <td style="color:var(--text)">Sabotagem requer presença física e conhecimento técnico</td>
-            <td><span class="tag-prop">B → culpado(B)</span></td><td>—</td>
+            <td><span class="tag-prop">F → culpado(F)</span></td><td>—</td>
             <td style="color:var(--text3)">Premissa</td>
           </tr>
           <tr class="answer-row" style="background: rgba(224,108,0,0.07)">
@@ -366,6 +412,10 @@
       Q = Bruno estava na sala de cibersegurança no momento do crime<br>
       R = Carlos estava na sala de cibersegurança no momento do crime<br>
       S = Diana estava na sala de cibersegurança no momento do crime<br>
+      T = Eduardo estava na sala de cibersegurança no momento do crime<br>
+      U = Fernanda estava na sala de cibersegurança no momento do crime<br>
+      V = Gabriel estava na sala de cibersegurança no momento do crime<br>
+      W = Helena estava na sala de cibersegurança no momento do crime<br>
       <br>
       <span style="color:var(--text2)">Apenas quem estava na sala de cibersegurança poderia ter roubado o notebook.</span>
     </div>
@@ -404,18 +454,72 @@
           <td style="color:#e07070">Diana eliminada ✗</td>
         </tr>
         <tr>
-          <td style="color:var(--text)">Carlos ou Diana estava no corredor naquela noite</td>
-          <td><span class="tag-prop">R ∨ S</span></td><td>—</td>
+          <td style="color:var(--text)">Se Fernanda estava, Diana também estava</td>
+          <td><span class="tag-prop">U → S</span></td><td>—</td>
           <td style="color:var(--text3)">Premissa</td>
         </tr>
         <tr>
-          <td style="color:var(--gold2)">Como Diana não estava, Carlos estava</td>
-          <td><span class="tag-prop">R</span></td>
+          <td style="color:var(--gold2)">Como Diana não estava, Fernanda não estava</td>
+          <td><span class="tag-prop">¬U</span></td>
+          <td><span class="tag-rule">Modus Tollens</span></td>
+          <td style="color:#e07070">Fernanda eliminada ✗</td>
+        </tr>
+        <tr>
+          <td style="color:var(--text)">Eduardo estava ou Ana estava na sala de cibersegurança</td>
+          <td><span class="tag-prop">T ∨ P</span></td><td>—</td>
+          <td style="color:var(--text3)">Premissa</td>
+        </tr>
+        <tr>
+          <td style="color:var(--gold2)">Como Ana não estava, Eduardo estava</td>
+          <td><span class="tag-prop">T</span></td>
           <td><span class="tag-rule">Sil. Disjuntivo</span></td>
+          <td style="color:var(--text3)">Eduardo presente</td>
+        </tr>
+        <tr>
+          <td style="color:var(--text)">Se Eduardo estava, Carlos também estava</td>
+          <td><span class="tag-prop">T → R</span></td><td>—</td>
+          <td style="color:var(--text3)">Premissa</td>
+        </tr>
+        <tr>
+          <td style="color:var(--gold2)">Como Eduardo estava, Carlos também estava</td>
+          <td><span class="tag-prop">R</span></td>
+          <td><span class="tag-rule">Modus Ponens</span></td>
           <td style="color:var(--text3)">Carlos presente</td>
         </tr>
         <tr>
-          <td style="color:var(--text)">Apenas quem estava na sala poderia ter roubado o notebook</td>
+          <td style="color:var(--text)">Eduardo tem álibi confirmado — não poderia ter agido</td>
+          <td><span class="tag-prop">¬culpado(T)</span></td><td>—</td>
+          <td style="color:#e07070">Eduardo eliminado ✗</td>
+        </tr>
+        <tr>
+          <td style="color:var(--text)">Helena estava na sala de cibersegurança ou Gabriel estava</td>
+          <td><span class="tag-prop">W ∨ V</span></td><td>—</td>
+          <td style="color:var(--text3)">Premissa</td>
+        </tr>
+        <tr>
+          <td style="color:var(--text)">Se Helena estava, então Bruno também estava</td>
+          <td><span class="tag-prop">W → Q</span></td><td>—</td>
+          <td style="color:var(--text3)">Premissa</td>
+        </tr>
+        <tr>
+          <td style="color:var(--gold2)">Como Bruno não estava, Helena não estava</td>
+          <td><span class="tag-prop">¬W</span></td>
+          <td><span class="tag-rule">Modus Tollens</span></td>
+          <td style="color:#e07070">Helena eliminada ✗</td>
+        </tr>
+        <tr>
+          <td style="color:var(--gold2)">Como Helena não estava, Gabriel estava</td>
+          <td><span class="tag-prop">V</span></td>
+          <td><span class="tag-rule">Sil. Disjuntivo</span></td>
+          <td style="color:var(--text3)">Gabriel presente</td>
+        </tr>
+        <tr>
+          <td style="color:var(--text)">Gabriel estava de plantão — é o responsável pela segurança, não pelo furto</td>
+          <td><span class="tag-prop">¬culpado(V)</span></td><td>—</td>
+          <td style="color:#e07070">Gabriel eliminado ✗</td>
+        </tr>
+        <tr>
+          <td style="color:var(--text)">Apenas quem estava na sala poderia ser culpado</td>
           <td><span class="tag-prop">R → culpado(R)</span></td><td>—</td>
           <td style="color:var(--text3)">Premissa</td>
         </tr>
@@ -442,7 +546,10 @@
     <div class="notation-box">
       A = Marcos estava na sala de estudos no momento do crime<br>
       B = Lívia estava na sala de estudos no momento do crime<br>
-      C = Sônia estava na sala de estudos no momento do crime<br>
+      C = Roberto estava na sala de estudos no momento do crime<br>
+      D = Patrícia estava na sala de estudos no momento do crime<br>
+      E = Caio estava na sala de estudos no momento do crime<br>
+      F = Sônia estava na sala de estudos no momento do crime<br>
       <br>
       <span style="color:var(--text2)">Apenas quem estava na sala de estudos poderia ter cometido o assassinato.</span>
     </div>
@@ -455,12 +562,12 @@
       <tbody>
         <tr>
           <td style="color:var(--text)">Se Marcos estava, Sônia também estava</td>
-          <td><span class="tag-prop">A → C</span></td><td>—</td>
+          <td><span class="tag-prop">A → F</span></td><td>—</td>
           <td style="color:var(--text3)">Premissa</td>
         </tr>
         <tr>
           <td style="color:var(--text)">Sônia não estava na sala de estudos naquela noite</td>
-          <td><span class="tag-prop">¬C</span></td><td>—</td>
+          <td><span class="tag-prop">¬F</span></td><td>—</td>
           <td style="color:var(--text3)">Premissa</td>
         </tr>
         <tr>
@@ -470,12 +577,45 @@
           <td style="color:#e07070">Marcos eliminado ✗</td>
         </tr>
         <tr>
-          <td style="color:var(--text)">Marcos ou Lívia estava na sala de estudos naquela noite</td>
-          <td><span class="tag-prop">A ∨ B</span></td><td>—</td>
+          <td style="color:var(--text)">Se Caio estava, então Marcos também estava</td>
+          <td><span class="tag-prop">E → A</span></td><td>—</td>
           <td style="color:var(--text3)">Premissa</td>
         </tr>
         <tr>
-          <td style="color:var(--gold2)">Como Marcos não estava, Lívia estava</td>
+          <td style="color:var(--gold2)">Como Marcos não estava, Caio também não estava</td>
+          <td><span class="tag-prop">¬E</span></td>
+          <td><span class="tag-rule">Modus Tollens</span></td>
+          <td style="color:#e07070">Caio eliminado ✗</td>
+        </tr>
+        <tr>
+          <td style="color:var(--text)">Se Patrícia estava, então Marcos também estava</td>
+          <td><span class="tag-prop">D → A</span></td><td>—</td>
+          <td style="color:var(--text3)">Premissa</td>
+        </tr>
+        <tr>
+          <td style="color:var(--gold2)">Como Marcos não estava, Patrícia também não estava</td>
+          <td><span class="tag-prop">¬D</span></td>
+          <td><span class="tag-rule">Modus Tollens</span></td>
+          <td style="color:#e07070">Patrícia eliminada ✗</td>
+        </tr>
+        <tr>
+          <td style="color:var(--text)">Roberto ou Lívia estava na sala de estudos naquela noite</td>
+          <td><span class="tag-prop">C ∨ B</span></td><td>—</td>
+          <td style="color:var(--text3)">Premissa</td>
+        </tr>
+        <tr>
+          <td style="color:var(--text)">Se Roberto estava, então Sônia também estava</td>
+          <td><span class="tag-prop">C → F</span></td><td>—</td>
+          <td style="color:var(--text3)">Premissa</td>
+        </tr>
+        <tr>
+          <td style="color:var(--gold2)">Como Sônia não estava, Roberto também não estava</td>
+          <td><span class="tag-prop">¬C</span></td>
+          <td><span class="tag-rule">Modus Tollens</span></td>
+          <td style="color:#e07070">Roberto eliminado ✗</td>
+        </tr>
+        <tr>
+          <td style="color:var(--gold2)">Como Roberto não estava, Lívia estava</td>
           <td><span class="tag-prop">B</span></td>
           <td><span class="tag-rule">Sil. Disjuntivo</span></td>
           <td style="color:var(--text3)">Lívia presente</td>
