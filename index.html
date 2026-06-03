@@ -16,7 +16,7 @@
     <div class="game-header">
       <div class="eyebrow">Lógica Proposicional — Dossier de Casos</div>
       <h1>Escolha<br>seu Caso</h1>
-      <p class="subtitle">Dois crimes. Uma mente. Qual investigação você enfrenta primeiro?</p>
+      <p class="subtitle">Quatro crimes. Uma mente lógica. Qual investigação você enfrenta primeiro?</p>
     </div>
 
     <div class="cases-grid">
@@ -34,6 +34,22 @@
         <div class="case-title">A Sombra na Sala de Estudos</div>
         <p class="case-desc">Um corpo foi encontrado na sala de estudos após a meia-noite. Seis suspeitos. Nenhuma fuga possível. Nenhuma confissão.</p>
         <div class="case-tag">Assassinato · Lógica Proposicional</div>
+        <button class="btn case-btn">Investigar →</button>
+      </div>
+      <div class="case-card" onclick="selectCase(3)">
+        <div class="case-number">Caso nº 3</div>
+        <span class="case-icon">🗂️</span>
+        <div class="case-title">O Desaparecimento da Prova Final</div>
+        <p class="case-desc">A prova final de POO sumiu da coordenação na madrugada antes do exame. Nenhum arrombamento. Alguém com acesso interno — e com muito a ganhar.</p>
+        <div class="case-tag">Furto · Lógica Proposicional</div>
+        <button class="btn case-btn">Investigar →</button>
+      </div>
+      <div class="case-card" onclick="selectCase(4)">
+        <div class="case-number">Caso nº 4</div>
+        <span class="case-icon">🖥️</span>
+        <div class="case-title">O Sabotador do Servidor</div>
+        <p class="case-desc">O servidor principal foi derrubado manualmente durante a noite de portfólios. Seis crachás com acesso. Uma sabotagem deliberada. Nenhuma confissão.</p>
+        <div class="case-tag">Sabotagem · Lógica Proposicional</div>
         <button class="btn case-btn">Investigar →</button>
       </div>
     </div>
@@ -62,10 +78,6 @@
       <div class="suspect-card"><span class="suspect-icon">🧑‍💻</span><span class="suspect-name">Bruno</span><span class="suspect-role">Monitor</span></div>
       <div class="suspect-card"><span class="suspect-icon">🧑‍🔧</span><span class="suspect-name">Carlos</span><span class="suspect-role">Técnico de TI</span></div>
       <div class="suspect-card"><span class="suspect-icon">👩‍🏫</span><span class="suspect-name">Diana</span><span class="suspect-role">Professora</span></div>
-      <div class="suspect-card"><span class="suspect-icon">👨‍🏫</span><span class="suspect-name">Eduardo</span><span class="suspect-role">Professor</span></div>
-      <div class="suspect-card"><span class="suspect-icon">👩‍💼</span><span class="suspect-name">Fernanda</span><span class="suspect-role">Coordenadora</span></div>
-      <div class="suspect-card"><span class="suspect-icon">💂</span><span class="suspect-name">Gabriel</span><span class="suspect-role">Segurança</span></div>
-      <div class="suspect-card"><span class="suspect-icon">👩‍📚</span><span class="suspect-name">Helena</span><span class="suspect-role">Recepcionista</span></div>
     </div>
 
     <div style="text-align:center">
@@ -94,9 +106,6 @@
     <div class="suspects-grid">
       <div class="suspect-card"><span class="suspect-icon">🧑‍🎓</span><span class="suspect-name">Marcos</span><span class="suspect-role">Aluno Veterano</span></div>
       <div class="suspect-card"><span class="suspect-icon">👩‍💻</span><span class="suspect-name">Lívia</span><span class="suspect-role">Monitora</span></div>
-      <div class="suspect-card"><span class="suspect-icon">🧹</span><span class="suspect-name">Roberto</span><span class="suspect-role">Zelador</span></div>
-      <div class="suspect-card"><span class="suspect-icon">👩‍🏫</span><span class="suspect-name">Patrícia</span><span class="suspect-role">Prof. de Filosofia</span></div>
-      <div class="suspect-card"><span class="suspect-icon">🎬</span><span class="suspect-name">Caio</span><span class="suspect-role">Técnico AV</span></div>
       <div class="suspect-card"><span class="suspect-icon">📚</span><span class="suspect-name">Sônia</span><span class="suspect-role">Bibliotecária</span></div>
     </div>
 
@@ -105,8 +114,229 @@
     </div>
   </div>
 
+  <!-- TELA 1C: INTRO — CASO 3 -->
+  <div class="screen" id="screen-intro-3">
+    <div class="game-header">
+      <div class="eyebrow">Lógica Proposicional — Caso nº 3</div>
+      <h1>O Desaparecimento<br>da Prova Final</h1>
+      <p class="subtitle">Quem rouba uma prova teme uma verdade maior.</p>
+    </div>
+
+    <div class="intro-box">
+      <p>02h15. O Brum dorme. Os corredores da coordenação pedagógica estão vazios — ou deveriam estar. Lá dentro, o sistema de controle de acesso registrou um evento silencioso: a senha mestra foi usada para abrir o arquivo central da coordenação. Ninguém foi alertado. Ninguém percebeu.</p>
+      <p>Às 06h30, o professor Almeida chega para uma última revisão antes do exame e encontra o armário de provas tal como o deixou — fechado, sem marcas. Mas a pasta da <strong style="color:var(--gold2)">prova final de Programação Orientada a Objetos</strong> havia desaparecido. Não era só uma prova: eram semanas de elaboração, questões dissertativas sobre herança e polimorfismo, a avaliação integradora do semestre inteiro.</p>
+      <p>A investigação interna revelou algo inquietante: <strong style="color:var(--gold2)">cinco pessoas tinham credencial de acesso ao corredor da coordenação naquela madrugada</strong>. Os registros de câmera mostraram movimento — mas nenhuma face clara. O que sobrou foram logs de acesso, registros de ponto e uma série de depoimentos contraditórios.</p>
+      <p>Cada depoimento se transformou em uma proposição lógica. Cada proposição elimina um suspeito. A cadeia de inferências é curta — mas precisa.</p>
+      <p style="color:var(--text2); font-style:italic;">Sua missão: seguir a lógica, eliminar os inocentes e identificar quem utilizou o sistema de acesso para furtar a prova.</p>
+    </div>
+
+    <div class="ornament">✦ ✦ ✦</div>
+
+    <div class="suspects-grid">
+      <div class="suspect-card"><span class="suspect-icon">👩‍💼</span><span class="suspect-name">Renata</span><span class="suspect-role">Secretária Pedagógica</span></div>
+      <div class="suspect-card"><span class="suspect-icon">🧑‍🎓</span><span class="suspect-name">Igor</span><span class="suspect-role">Aluno Repetente</span></div>
+      <div class="suspect-card"><span class="suspect-icon">🔧</span><span class="suspect-name">Tiago</span><span class="suspect-role">Técnico de Manutenção</span></div>
+      <div class="suspect-card"><span class="suspect-icon">👩‍🏫</span><span class="suspect-name">Cíntia</span><span class="suspect-role">Coordenadora Adj.</span></div>
+    </div>
+
+    <div style="text-align:center">
+      <button class="btn" onclick="goTo('screen-clues')">Iniciar Investigação →</button>
+    </div>
+  </div>
+
+  <!-- TELA 3C: LÓGICA — CASO 3 -->
+  <div class="screen" id="screen-logic-3">
+    <div class="step-indicator">ETAPA 2 DE 3 — ANÁLISE FORMAL</div>
+    <div class="progress-bar"><div class="progress-fill" style="width:66%"></div></div>
+
+    <div class="section-label">Legenda das proposições</div>
+    <div class="notation-box">
+      P = Igor estava no corredor da coordenação naquela madrugada<br>
+      Q = Renata estava no corredor da coordenação naquela madrugada<br>
+      R = Tiago estava no corredor da coordenação naquela madrugada<br>
+      S = Cíntia estava no corredor da coordenação naquela madrugada<br>
+      <br>
+      <span style="color:var(--text2)">Apenas quem estava no corredor com acesso ao sistema poderia ter furtado a prova.</span>
+    </div>
+
+    <div class="section-label">Tabela de inferências</div>
+    <div class="logic-table-wrapper">
+      <table class="logic-table">
+        <thead>
+          <tr><th>Pista</th><th>Notação Formal</th><th>Regra</th><th>Conclusão</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="color:var(--text)">Se Igor estava, Tiago também estava (protocolo de segurança)</td>
+            <td><span class="tag-prop">P → R</span></td><td>—</td>
+            <td style="color:var(--text3)">Premissa</td>
+          </tr>
+          <tr>
+            <td style="color:var(--text)">Tiago não estava (ponto registrado às 22h)</td>
+            <td><span class="tag-prop">¬R</span></td><td>—</td>
+            <td style="color:var(--text3)">Premissa</td>
+          </tr>
+          <tr>
+            <td style="color:var(--gold2)">Portanto, Igor não estava</td>
+            <td><span class="tag-prop">¬P</span></td>
+            <td><span class="tag-rule">Modus Tollens</span></td>
+            <td style="color:#e07070">Igor eliminado ✗</td>
+          </tr>
+          <tr>
+            <td style="color:var(--text)">Se Cíntia estava, Igor também estava no setor</td>
+            <td><span class="tag-prop">S → P</span></td><td>—</td>
+            <td style="color:var(--text3)">Premissa</td>
+          </tr>
+          <tr>
+            <td style="color:var(--gold2)">Como Igor não estava, Cíntia não estava</td>
+            <td><span class="tag-prop">¬S</span></td>
+            <td><span class="tag-rule">Modus Tollens</span></td>
+            <td style="color:#e07070">Cíntia eliminada ✗</td>
+          </tr>
+          <tr>
+            <td style="color:var(--text)">Ou Renata ou Cíntia usou a senha mestra no corredor</td>
+            <td><span class="tag-prop">Q ∨ S</span></td><td>—</td>
+            <td style="color:var(--text3)">Premissa</td>
+          </tr>
+          <tr>
+            <td style="color:var(--gold2)">Como Cíntia não estava, Renata estava</td>
+            <td><span class="tag-prop">Q</span></td>
+            <td><span class="tag-rule">Sil. Disjuntivo</span></td>
+            <td style="color:var(--text3)">Renata presente</td>
+          </tr>
+          <tr>
+            <td style="color:var(--text)">Apenas Renata possuía acesso ao sistema de arquivos pedagógico</td>
+            <td><span class="tag-prop">Q → culpado(Q)</span></td><td>—</td>
+            <td style="color:var(--text3)">Premissa</td>
+          </tr>
+          <tr class="answer-row" style="background: rgba(224,108,0,0.07)">
+            <td style="color:var(--gold2); font-weight:600">Renata é a culpada</td>
+            <td><span class="tag-prop">culpado(Renata)</span></td>
+            <td><span class="tag-rule">Modus Ponens</span></td>
+            <td style="color:var(--gold2); font-weight:600">✦ Q.E.D.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="text-align:center; margin-top:32px">
+      <button class="btn" onclick="goTo('screen-answer')">Fazer minha acusação →</button>
+    </div>
+  </div>
+
+  <!-- TELA 1D: INTRO — CASO 4 -->
+  <div class="screen" id="screen-intro-4">
+    <div class="game-header">
+      <div class="eyebrow">Lógica Proposicional — Caso nº 4</div>
+      <h1>O Sabotador<br>do Servidor</h1>
+      <p class="subtitle">Nem toda sabotagem deixa cicatriz visível — apenas o silêncio que fica.</p>
+    </div>
+
+    <div class="intro-box">
+      <p>21h30. A noite de apresentações de portfólio estava no auge. O auditório cheio, projetores acesos, alunos formandos exibindo meses de trabalho para professores e visitantes. E então — as telas apagaram.</p>
+      <p>O servidor principal foi desligado manualmente. Não foi queda de energia — o no-break funcionou perfeitamente. Não foi falha técnica — o sistema estava estável. <strong style="color:var(--gold2)">Alguém entrou na sala do servidor no topo do Brum, contornou o sistema de UPS e pressionou o botão de desligamento forçado.</strong> Meses de trabalho dos alunos, portfólios inteiros, apagados em segundos.</p>
+      <p>A sala do servidor exige crachá de acesso com registro eletrônico. Os logs foram preservados. <strong style="color:var(--gold2)">Seis pessoas tinham credencial válida para aquela porta naquela noite</strong> — e apenas uma tinha motivo, oportunidade e o conhecimento técnico para realizar a sabotagem sem deixar rastros óbvios.</p>
+      <p>Este é o caso mais complexo: a cadeia de inferências é mais longa, com quatro aplicações consecutivas de Modus Tollens antes do Silogismo Disjuntivo final. A lógica não cede a pressão.</p>
+      <p style="color:var(--text2); font-style:italic;">Sua missão: percorrer a cadeia de eliminações até o fim e acusar o responsável pela sabotagem.</p>
+    </div>
+
+    <div class="ornament">✦ ✦ ✦</div>
+
+    <div class="suspects-grid">
+      <div class="suspect-card"><span class="suspect-icon">👨‍💻</span><span class="suspect-name">Fábio</span><span class="suspect-role">Estagiário de TI</span></div>
+      <div class="suspect-card"><span class="suspect-icon">👩‍🔬</span><span class="suspect-name">Marina</span><span class="suspect-role">Professora de Redes</span></div>
+      <div class="suspect-card"><span class="suspect-icon">👷</span><span class="suspect-name">Davi</span><span class="suspect-role">Eletricista Contratado</span></div>
+      <div class="suspect-card"><span class="suspect-icon">📋</span><span class="suspect-name">Priscila</span><span class="suspect-role">Assist. Administrativa</span></div>
+    </div>
+
+    <div style="text-align:center">
+      <button class="btn" onclick="goTo('screen-clues')">Iniciar Investigação →</button>
+    </div>
+  </div>
+
+  <!-- TELA 3D: LÓGICA — CASO 4 -->
+  <div class="screen" id="screen-logic-4">
+    <div class="step-indicator">ETAPA 2 DE 3 — ANÁLISE FORMAL</div>
+    <div class="progress-bar"><div class="progress-fill" style="width:66%"></div></div>
+
+    <div class="section-label">Legenda das proposições</div>
+    <div class="notation-box">
+      A = Marina estava na sala do servidor no momento da sabotagem<br>
+      B = Fábio estava na sala do servidor no momento da sabotagem<br>
+      C = Davi estava na sala do servidor no momento da sabotagem<br>
+      D = Priscila estava na sala do servidor no momento da sabotagem<br>
+      <br>
+      <span style="color:var(--text2)">Apenas quem estava fisicamente na sala do servidor poderia ter cometido a sabotagem.</span>
+    </div>
+
+    <div class="section-label">Tabela de inferências</div>
+    <div class="logic-table-wrapper">
+      <table class="logic-table">
+        <thead>
+          <tr><th>Pista</th><th>Notação Formal</th><th>Regra</th><th>Conclusão</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="color:var(--text)">Se Marina estava, Davi também estava (protocolo técnico)</td>
+            <td><span class="tag-prop">A → C</span></td><td>—</td>
+            <td style="color:var(--text3)">Premissa</td>
+          </tr>
+          <tr>
+            <td style="color:var(--text)">Davi não entrou na sala do servidor naquela noite</td>
+            <td><span class="tag-prop">¬C</span></td><td>—</td>
+            <td style="color:var(--text3)">Premissa</td>
+          </tr>
+          <tr>
+            <td style="color:var(--gold2)">Portanto, Marina não estava</td>
+            <td><span class="tag-prop">¬A</span></td>
+            <td><span class="tag-rule">Modus Tollens</span></td>
+            <td style="color:#e07070">Marina eliminada ✗</td>
+          </tr>
+          <tr>
+            <td style="color:var(--text)">Se Priscila estava, Davi também estava (acompanhava o serviço)</td>
+            <td><span class="tag-prop">D → C</span></td><td>—</td>
+            <td style="color:var(--text3)">Premissa</td>
+          </tr>
+          <tr>
+            <td style="color:var(--gold2)">Como Davi não estava, Priscila não estava</td>
+            <td><span class="tag-prop">¬D</span></td>
+            <td><span class="tag-rule">Modus Tollens</span></td>
+            <td style="color:#e07070">Priscila eliminada ✗</td>
+          </tr>
+          <tr>
+            <td style="color:var(--text)">Log de crachá: Fábio ou Priscila entrou na sala do servidor</td>
+            <td><span class="tag-prop">B ∨ D</span></td><td>—</td>
+            <td style="color:var(--text3)">Premissa</td>
+          </tr>
+          <tr>
+            <td style="color:var(--gold2)">Como Priscila não estava, Fábio estava</td>
+            <td><span class="tag-prop">B</span></td>
+            <td><span class="tag-rule">Sil. Disjuntivo</span></td>
+            <td style="color:var(--text3)">Fábio presente</td>
+          </tr>
+          <tr>
+            <td style="color:var(--text)">Sabotagem requer presença física e conhecimento técnico</td>
+            <td><span class="tag-prop">B → culpado(B)</span></td><td>—</td>
+            <td style="color:var(--text3)">Premissa</td>
+          </tr>
+          <tr class="answer-row" style="background: rgba(224,108,0,0.07)">
+            <td style="color:var(--gold2); font-weight:600">Fábio é o culpado</td>
+            <td><span class="tag-prop">culpado(Fábio)</span></td>
+            <td><span class="tag-rule">Modus Ponens</span></td>
+            <td style="color:var(--gold2); font-weight:600">✦ Q.E.D.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="text-align:center; margin-top:32px">
+      <button class="btn" onclick="goTo('screen-answer')">Fazer minha acusação →</button>
+    </div>
+  </div>
+
   <!-- TELA 2: PISTAS (compartilhada, preenchida dinamicamente) -->
   <div class="screen" id="screen-clues">
+    <div class="case-progress-badge"></div>
     <div class="step-indicator">ETAPA 1 DE 3 — ANÁLISE DAS PISTAS</div>
     <div class="progress-bar"><div class="progress-fill" style="width:33%"></div></div>
 
@@ -117,7 +347,7 @@
     <ul class="clue-list" id="clue-list"></ul>
 
     <div id="reveal-btn-area" style="text-align:center; margin-bottom:32px">
-      <button class="btn" onclick="revealNextClue()">Revelar próxima pista</button>
+      <button class="btn" id="reveal-btn" onclick="startAutoReveal()">▶ Iniciar Revelação</button>
     </div>
 
     <div id="proceed-area" style="text-align:center; display:none">
@@ -138,10 +368,6 @@
       Q = Bruno estava na sala de cibersegurança no momento do crime<br>
       R = Carlos estava na sala de cibersegurança no momento do crime<br>
       S = Diana estava na sala de cibersegurança no momento do crime<br>
-      T = Eduardo estava na sala de cibersegurança no momento do crime<br>
-      U = Fernanda estava na sala de cibersegurança no momento do crime<br>
-      V = Gabriel estava na sala de cibersegurança no momento do crime<br>
-      W = Helena estava na sala de cibersegurança no momento do crime<br>
       <br>
       <span style="color:var(--text2)">Apenas quem estava na sala de cibersegurança poderia ter roubado o notebook.</span>
     </div>
@@ -180,76 +406,22 @@
           <td style="color:#e07070">Diana eliminada ✗</td>
         </tr>
         <tr>
-          <td style="color:var(--text)">Se Fernanda estava, Diana também estava</td>
-          <td><span class="tag-prop">U → S</span></td><td>—</td>
+          <td style="color:var(--text)">Carlos ou Diana estava no corredor naquela noite</td>
+          <td><span class="tag-prop">R ∨ S</span></td><td>—</td>
           <td style="color:var(--text3)">Premissa</td>
         </tr>
         <tr>
-          <td style="color:var(--gold2)">Como Diana não estava, Fernanda não estava</td>
-          <td><span class="tag-prop">¬U</span></td>
-          <td><span class="tag-rule">Modus Tollens</span></td>
-          <td style="color:#e07070">Fernanda eliminada ✗</td>
-        </tr>
-        <tr>
-          <td style="color:var(--text)">Eduardo estava ou Ana estava na sala de cibersegurança</td>
-          <td><span class="tag-prop">T ∨ P</span></td><td>—</td>
-          <td style="color:var(--text3)">Premissa</td>
-        </tr>
-        <tr>
-          <td style="color:var(--gold2)">Como Ana não estava, Eduardo estava</td>
-          <td><span class="tag-prop">T</span></td>
-          <td><span class="tag-rule">Sil. Disjuntivo</span></td>
-          <td style="color:var(--text3)">Eduardo presente</td>
-        </tr>
-        <tr>
-          <td style="color:var(--text)">Se Eduardo estava, Carlos também estava</td>
-          <td><span class="tag-prop">T → R</span></td><td>—</td>
-          <td style="color:var(--text3)">Premissa</td>
-        </tr>
-        <tr>
-          <td style="color:var(--gold2)">Como Eduardo estava, Carlos também estava</td>
+          <td style="color:var(--gold2)">Como Diana não estava, Carlos estava</td>
           <td><span class="tag-prop">R</span></td>
-          <td><span class="tag-rule">Modus Ponens</span></td>
+          <td><span class="tag-rule">Sil. Disjuntivo</span></td>
           <td style="color:var(--text3)">Carlos presente</td>
         </tr>
         <tr>
-          <td style="color:var(--text)">Eduardo tem álibi confirmado — não poderia ter agido</td>
-          <td><span class="tag-prop">¬culpado(T)</span></td><td>—</td>
-          <td style="color:#e07070">Eduardo eliminado ✗</td>
-        </tr>
-        <tr>
-          <td style="color:var(--text)">Helena estava na sala de cibersegurança ou Gabriel estava</td>
-          <td><span class="tag-prop">W ∨ V</span></td><td>—</td>
-          <td style="color:var(--text3)">Premissa</td>
-        </tr>
-        <tr>
-          <td style="color:var(--text)">Se Helena estava, então Bruno também estava</td>
-          <td><span class="tag-prop">W → Q</span></td><td>—</td>
-          <td style="color:var(--text3)">Premissa</td>
-        </tr>
-        <tr>
-          <td style="color:var(--gold2)">Como Bruno não estava, Helena não estava</td>
-          <td><span class="tag-prop">¬W</span></td>
-          <td><span class="tag-rule">Modus Tollens</span></td>
-          <td style="color:#e07070">Helena eliminada ✗</td>
-        </tr>
-        <tr>
-          <td style="color:var(--gold2)">Como Helena não estava, Gabriel estava</td>
-          <td><span class="tag-prop">V</span></td>
-          <td><span class="tag-rule">Sil. Disjuntivo</span></td>
-          <td style="color:var(--text3)">Gabriel presente</td>
-        </tr>
-        <tr>
-          <td style="color:var(--text)">Gabriel estava de plantão — é o responsável pela segurança, não pelo furto</td>
-          <td><span class="tag-prop">¬culpado(V)</span></td><td>—</td>
-          <td style="color:#e07070">Gabriel eliminado ✗</td>
-        </tr>
-        <tr>
-          <td style="color:var(--text)">Apenas quem estava na sala poderia ser culpado</td>
+          <td style="color:var(--text)">Apenas quem estava na sala poderia ter roubado o notebook</td>
           <td><span class="tag-prop">R → culpado(R)</span></td><td>—</td>
           <td style="color:var(--text3)">Premissa</td>
         </tr>
-        <tr style="background: rgba(224,108,0,0.07)">
+        <tr class="answer-row" style="background: rgba(224,108,0,0.07)">
           <td style="color:var(--gold2); font-weight:600">Carlos é o culpado</td>
           <td><span class="tag-prop">culpado(Carlos)</span></td>
           <td><span class="tag-rule">Modus Ponens</span></td>
@@ -272,10 +444,7 @@
     <div class="notation-box">
       A = Marcos estava na sala de estudos no momento do crime<br>
       B = Lívia estava na sala de estudos no momento do crime<br>
-      C = Roberto estava na sala de estudos no momento do crime<br>
-      D = Patrícia estava na sala de estudos no momento do crime<br>
-      E = Caio estava na sala de estudos no momento do crime<br>
-      F = Sônia estava na sala de estudos no momento do crime<br>
+      C = Sônia estava na sala de estudos no momento do crime<br>
       <br>
       <span style="color:var(--text2)">Apenas quem estava na sala de estudos poderia ter cometido o assassinato.</span>
     </div>
@@ -288,12 +457,12 @@
       <tbody>
         <tr>
           <td style="color:var(--text)">Se Marcos estava, Sônia também estava</td>
-          <td><span class="tag-prop">A → F</span></td><td>—</td>
+          <td><span class="tag-prop">A → C</span></td><td>—</td>
           <td style="color:var(--text3)">Premissa</td>
         </tr>
         <tr>
           <td style="color:var(--text)">Sônia não estava na sala de estudos naquela noite</td>
-          <td><span class="tag-prop">¬F</span></td><td>—</td>
+          <td><span class="tag-prop">¬C</span></td><td>—</td>
           <td style="color:var(--text3)">Premissa</td>
         </tr>
         <tr>
@@ -303,45 +472,12 @@
           <td style="color:#e07070">Marcos eliminado ✗</td>
         </tr>
         <tr>
-          <td style="color:var(--text)">Se Caio estava, então Marcos também estava</td>
-          <td><span class="tag-prop">E → A</span></td><td>—</td>
+          <td style="color:var(--text)">Marcos ou Lívia estava na sala de estudos naquela noite</td>
+          <td><span class="tag-prop">A ∨ B</span></td><td>—</td>
           <td style="color:var(--text3)">Premissa</td>
         </tr>
         <tr>
-          <td style="color:var(--gold2)">Como Marcos não estava, Caio também não estava</td>
-          <td><span class="tag-prop">¬E</span></td>
-          <td><span class="tag-rule">Modus Tollens</span></td>
-          <td style="color:#e07070">Caio eliminado ✗</td>
-        </tr>
-        <tr>
-          <td style="color:var(--text)">Se Patrícia estava, então Marcos também estava</td>
-          <td><span class="tag-prop">D → A</span></td><td>—</td>
-          <td style="color:var(--text3)">Premissa</td>
-        </tr>
-        <tr>
-          <td style="color:var(--gold2)">Como Marcos não estava, Patrícia também não estava</td>
-          <td><span class="tag-prop">¬D</span></td>
-          <td><span class="tag-rule">Modus Tollens</span></td>
-          <td style="color:#e07070">Patrícia eliminada ✗</td>
-        </tr>
-        <tr>
-          <td style="color:var(--text)">Roberto ou Lívia estava na sala de estudos naquela noite</td>
-          <td><span class="tag-prop">C ∨ B</span></td><td>—</td>
-          <td style="color:var(--text3)">Premissa</td>
-        </tr>
-        <tr>
-          <td style="color:var(--text)">Se Roberto estava, então Sônia também estava</td>
-          <td><span class="tag-prop">C → F</span></td><td>—</td>
-          <td style="color:var(--text3)">Premissa</td>
-        </tr>
-        <tr>
-          <td style="color:var(--gold2)">Como Sônia não estava, Roberto também não estava</td>
-          <td><span class="tag-prop">¬C</span></td>
-          <td><span class="tag-rule">Modus Tollens</span></td>
-          <td style="color:#e07070">Roberto eliminado ✗</td>
-        </tr>
-        <tr>
-          <td style="color:var(--gold2)">Como Roberto não estava, Lívia estava</td>
+          <td style="color:var(--gold2)">Como Marcos não estava, Lívia estava</td>
           <td><span class="tag-prop">B</span></td>
           <td><span class="tag-rule">Sil. Disjuntivo</span></td>
           <td style="color:var(--text3)">Lívia presente</td>
@@ -351,7 +487,7 @@
           <td><span class="tag-prop">B → culpado(B)</span></td><td>—</td>
           <td style="color:var(--text3)">Premissa</td>
         </tr>
-        <tr style="background: rgba(224,108,0,0.07)">
+        <tr class="answer-row" style="background: rgba(224,108,0,0.07)">
           <td style="color:var(--gold2); font-weight:600">Lívia é a culpada</td>
           <td><span class="tag-prop">culpado(Lívia)</span></td>
           <td><span class="tag-rule">Modus Ponens</span></td>
@@ -367,6 +503,7 @@
 
   <!-- TELA 4: ACUSAÇÃO (compartilhada, preenchida dinamicamente) -->
   <div class="screen" id="screen-answer">
+    <div class="case-progress-badge"></div>
     <div class="step-indicator">ETAPA 3 DE 3 — ACUSAÇÃO FINAL</div>
     <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
 
@@ -374,11 +511,26 @@
       <p>Com base nas pistas analisadas e nas regras de inferência aplicadas, quem você acusa pelo crime?</p>
     </div>
 
-    <div class="tries-info">Tentativas restantes: <strong style="color:var(--gold2)" id="tries-count">3</strong></div>
+    <div class="accusation-timer-wrap">
+      <div class="accusation-timer" id="accusation-timer">1:30</div>
+      <div class="accusation-timer-label">para acusar</div>
+    </div>
 
-    <div class="choice-grid" id="choice-grid"></div>
+    <div class="tries-visual">
+      <span class="try-token" id="try-token-1">🔍</span>
+      <span class="try-token" id="try-token-2">🔍</span>
+      <span class="try-token" id="try-token-3">🔍</span>
+    </div>
+
+    <div class="guess-area">
+      <select class="guess-select" id="guess-select">
+        <option value="">— Selecione o suspeito —</option>
+      </select>
+      <button class="btn" id="guess-btn" onclick="submitGuess()">Confirmar Palpite →</button>
+    </div>
 
     <div id="feedback-msg" style="text-align:center; color:#e07070; font-style:italic; margin-bottom:16px; min-height:24px"></div>
+    <div class="choice-grid" id="choice-grid" style="display:none"></div>
   </div>
 
   <!-- TELA 5: RESULTADO -->
@@ -389,6 +541,77 @@
       <button class="btn" onclick="goToSelect()">Escolher outro caso</button>
     </div>
   </div>
+
+  <!-- CADERNO DE INVESTIGAÇÃO -->
+  <div class="notebook-panel" id="notebook-panel" aria-hidden="true">
+
+    <!-- Espiral -->
+    <div class="notebook-spiral">
+      <div class="notebook-ring"></div>
+      <div class="notebook-ring"></div>
+      <div class="notebook-ring"></div>
+      <div class="notebook-ring"></div>
+      <div class="notebook-ring"></div>
+      <div class="notebook-ring"></div>
+      <div class="notebook-ring"></div>
+      <div class="notebook-ring"></div>
+      <div class="notebook-ring"></div>
+      <div class="notebook-ring"></div>
+    </div>
+
+    <div class="notebook-header">
+      <div>
+        <div class="notebook-eyebrow">Caderno de Investigação</div>
+        <div class="notebook-case-label" id="notebook-case-label">Caso nº 1</div>
+      </div>
+      <button class="notebook-close-btn" onclick="toggleNotebook()" aria-label="Fechar caderno">✕</button>
+    </div>
+
+    <div class="notebook-section">
+      <div class="section-label">Minha Hipótese</div>
+      <select class="notebook-select" id="notebook-hypothesis" onchange="onNotebookInput()">
+        <option value="">— Minha hipótese —</option>
+      </select>
+    </div>
+
+    <div class="notebook-section">
+      <div class="section-label">Proposições</div>
+      <div id="notebook-propositions">
+        <span class="notebook-prop-empty">Selecione um caso para ver as proposições.</span>
+      </div>
+    </div>
+
+    <div class="notebook-section">
+      <div class="section-label">Anotações Lógicas</div>
+      <div class="logic-keys">
+        <button class="logic-key-btn" onclick="insertSymbol('¬')" title="Negação (não)">¬</button>
+        <button class="logic-key-btn" onclick="insertSymbol('∧')" title="E (conjunção)">∧</button>
+        <button class="logic-key-btn" onclick="insertSymbol('∨')" title="Ou (disjunção)">∨</button>
+        <button class="logic-key-btn" onclick="insertSymbol('→')" title="Se...então">→</button>
+        <button class="logic-key-btn" onclick="insertSymbol('↔')" title="Se e somente se">↔</button>
+
+        <button class="logic-key-btn" onclick="insertSymbol('(')">(</button>
+        <button class="logic-key-btn" onclick="insertSymbol(')')">)</button>
+        <button class="logic-key-btn" onclick="insertSymbol(' ')" title="Espaço">⎵</button>
+      </div>
+      <textarea class="notebook-textarea" id="notebook-notes" rows="8"
+                placeholder="P → Q, ¬Q, logo ¬P (Modus Tollens)"
+                oninput="onNotebookInput()"></textarea>
+      <div class="notebook-save-status" id="notebook-save-status"></div>
+    </div>
+
+    <div class="notebook-section">
+      <div class="section-label">Histórico de Tentativas</div>
+      <ul class="notebook-history-list" id="notebook-history-list">
+        <li class="notebook-history-empty">Nenhuma tentativa ainda.</li>
+      </ul>
+    </div>
+  </div>
+
+  <button class="notebook-toggle" id="notebook-toggle" onclick="toggleNotebook()"
+          style="display:none" aria-label="Abrir caderno">
+    📓 Caderno
+  </button>
 
 </div>
 <script src="script.js"></script>
