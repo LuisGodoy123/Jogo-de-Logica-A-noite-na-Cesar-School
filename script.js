@@ -1,3 +1,5 @@
+localStorage.removeItem('jogoLogica_v1');
+
 // ── localStorage helpers ───────────────────────────────────────────────────
 function loadStorage() {
   try { return JSON.parse(localStorage.getItem('jogoLogica_v1')) || {}; }
@@ -201,8 +203,8 @@ let timeLeft = 90;
 function selectCase(n) {
   currentCase = n;
   resetCaseState();
+  setCaseData(n, { cluesRevealed: 0, completed: false, guessHistory: [] });
   renderCaseUI();
-  restoreSessionState(n);
   populateNotebook(n);
   goTo(cases[n].introScreen);
   showNotebookToggle();
@@ -225,6 +227,12 @@ function goTo(id) {
 }
 
 function goToLogic() { goTo(cases[currentCase].logicScreen); }
+
+function goBackToIntro() {
+  clearInterval(autoRevealInterval);
+  autoRevealInterval = null;
+  goTo(cases[currentCase].introScreen);
+}
 
 function goToSelect() {
   resetCaseState();
@@ -418,7 +426,7 @@ function showResult(success) {
 // ── Restart ────────────────────────────────────────────────────────────────
 function restartCase() {
   resetCaseState();
-  setCaseData(currentCase, { cluesRevealed: 0, completed: false });
+  setCaseData(currentCase, { cluesRevealed: 0, completed: false, guessHistory: [] });
   renderCaseUI();
   populateNotebook(currentCase);
   goTo(cases[currentCase].introScreen);

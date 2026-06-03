@@ -82,7 +82,8 @@
       <div class="suspect-card"><span class="suspect-icon">👩‍📚</span><span class="suspect-name">Helena</span><span class="suspect-role">Recepcionista</span></div>
     </div>
 
-    <div style="text-align:center">
+    <div style="text-align:center; display:flex; gap:16px; justify-content:center; flex-wrap:wrap">
+      <button class="btn-back" onclick="goToSelect()">← Voltar</button>
       <button class="btn" onclick="goTo('screen-clues')">Iniciar Investigação →</button>
     </div>
   </div>
@@ -114,7 +115,8 @@
       <div class="suspect-card"><span class="suspect-icon">📚</span><span class="suspect-name">Sônia</span><span class="suspect-role">Bibliotecária</span></div>
     </div>
 
-    <div style="text-align:center">
+    <div style="text-align:center; display:flex; gap:16px; justify-content:center; flex-wrap:wrap">
+      <button class="btn-back" onclick="goToSelect()">← Voltar</button>
       <button class="btn" onclick="goTo('screen-clues')">Iniciar Investigação →</button>
     </div>
   </div>
@@ -145,15 +147,16 @@
       <div class="suspect-card"><span class="suspect-icon">👩‍🏫</span><span class="suspect-name">Cíntia</span><span class="suspect-role">Coordenadora Adj.</span></div>
     </div>
 
-    <div style="text-align:center">
+    <div style="text-align:center; display:flex; gap:16px; justify-content:center; flex-wrap:wrap">
+      <button class="btn-back" onclick="goToSelect()">← Voltar</button>
       <button class="btn" onclick="goTo('screen-clues')">Iniciar Investigação →</button>
     </div>
   </div>
 
   <!-- TELA 3C: LÓGICA — CASO 3 -->
   <div class="screen" id="screen-logic-3">
-    <div class="step-indicator">ETAPA 2 DE 3 — ANÁLISE FORMAL</div>
-    <div class="progress-bar"><div class="progress-fill" style="width:66%"></div></div>
+    <div class="step-indicator">REVISÃO LÓGICA</div>
+    <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
 
     <div class="section-label">Legenda das proposições</div>
     <div class="notation-box">
@@ -238,7 +241,7 @@
     </div>
 
     <div style="text-align:center; margin-top:32px">
-      <button class="btn" onclick="goTo('screen-answer')">Fazer minha acusação →</button>
+      <button class="btn" onclick="goTo('screen-result')">← Voltar ao resultado</button>
     </div>
   </div>
 
@@ -269,15 +272,16 @@
       <div class="suspect-card"><span class="suspect-icon">📋</span><span class="suspect-name">Priscila</span><span class="suspect-role">Assist. Administrativa</span></div>
     </div>
 
-    <div style="text-align:center">
+    <div style="text-align:center; display:flex; gap:16px; justify-content:center; flex-wrap:wrap">
+      <button class="btn-back" onclick="goToSelect()">← Voltar</button>
       <button class="btn" onclick="goTo('screen-clues')">Iniciar Investigação →</button>
     </div>
   </div>
 
   <!-- TELA 3D: LÓGICA — CASO 4 -->
   <div class="screen" id="screen-logic-4">
-    <div class="step-indicator">ETAPA 2 DE 3 — ANÁLISE FORMAL</div>
-    <div class="progress-bar"><div class="progress-fill" style="width:66%"></div></div>
+    <div class="step-indicator">REVISÃO LÓGICA</div>
+    <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
 
     <div class="section-label">Legenda das proposições</div>
     <div class="notation-box">
@@ -374,15 +378,16 @@
     </div>
 
     <div style="text-align:center; margin-top:32px">
-      <button class="btn" onclick="goTo('screen-answer')">Fazer minha acusação →</button>
+      <button class="btn" onclick="goTo('screen-result')">← Voltar ao resultado</button>
     </div>
   </div>
 
   <!-- TELA 2: PISTAS (compartilhada, preenchida dinamicamente) -->
   <div class="screen" id="screen-clues">
+    <div style="margin-bottom:8px"><button class="btn-back" onclick="goBackToIntro()">← Voltar ao caso</button></div>
     <div class="case-progress-badge"></div>
-    <div class="step-indicator">ETAPA 1 DE 3 — ANÁLISE DAS PISTAS</div>
-    <div class="progress-bar"><div class="progress-fill" style="width:33%"></div></div>
+    <div class="step-indicator">ETAPA 1 DE 2 — ANÁLISE DAS PISTAS</div>
+    <div class="progress-bar"><div class="progress-fill" style="width:50%"></div></div>
 
     <div class="section-label">Suspeitos</div>
     <div class="suspects-grid" id="suspects-grid-clues"></div>
@@ -396,15 +401,15 @@
 
     <div id="proceed-area" style="text-align:center; display:none">
       <div class="ornament" style="margin-bottom:24px">✦ ✦ ✦</div>
-      <p style="color:var(--text2); margin-bottom:24px; font-style:italic">Todas as pistas foram reveladas. Está pronto para analisar a lógica?</p>
-      <button class="btn" onclick="goToLogic()">Ver análise lógica →</button>
+      <p style="color:var(--text2); margin-bottom:24px; font-style:italic">Todas as pistas foram reveladas. Está pronto para fazer sua acusação?</p>
+      <button class="btn" onclick="goTo('screen-answer')">Fazer minha acusação →</button>
     </div>
   </div>
 
   <!-- TELA 3A: LÓGICA — CASO 1 -->
   <div class="screen" id="screen-logic-1">
-    <div class="step-indicator">ETAPA 2 DE 3 — ANÁLISE FORMAL</div>
-    <div class="progress-bar"><div class="progress-fill" style="width:66%"></div></div>
+    <div class="step-indicator">REVISÃO LÓGICA</div>
+    <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
 
     <div class="section-label">Legenda das proposições</div>
     <div class="notation-box">
@@ -533,14 +538,14 @@
     </table>
 
     <div style="text-align:center; margin-top:32px">
-      <button class="btn" onclick="goTo('screen-answer')">Fazer minha acusação →</button>
+      <button class="btn" onclick="goTo('screen-result')">← Voltar ao resultado</button>
     </div>
   </div>
 
   <!-- TELA 3B: LÓGICA — CASO 2 -->
   <div class="screen" id="screen-logic-2">
-    <div class="step-indicator">ETAPA 2 DE 3 — ANÁLISE FORMAL</div>
-    <div class="progress-bar"><div class="progress-fill" style="width:66%"></div></div>
+    <div class="step-indicator">REVISÃO LÓGICA</div>
+    <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
 
     <div class="section-label">Legenda das proposições</div>
     <div class="notation-box">
@@ -635,15 +640,16 @@
     </table>
 
     <div style="text-align:center; margin-top:32px">
-      <button class="btn" onclick="goTo('screen-answer')">Fazer minha acusação →</button>
+      <button class="btn" onclick="goTo('screen-result')">← Voltar ao resultado</button>
     </div>
   </div>
 
   <!-- TELA 4: ACUSAÇÃO (compartilhada, preenchida dinamicamente) -->
   <div class="screen" id="screen-answer">
     <div class="case-progress-badge"></div>
-    <div class="step-indicator">ETAPA 3 DE 3 — ACUSAÇÃO FINAL</div>
+    <div class="step-indicator">ETAPA 2 DE 2 — ACUSAÇÃO FINAL</div>
     <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
+    <div style="margin-bottom:8px"><button class="btn-back" onclick="goTo('screen-clues')">← Rever pistas</button></div>
 
     <div class="intro-box" style="margin-bottom:36px">
       <p>Com base nas pistas analisadas e nas regras de inferência aplicadas, quem você acusa pelo crime?</p>
@@ -676,6 +682,7 @@
     <div id="result-content"></div>
     <div style="text-align:center; display:flex; gap:16px; justify-content:center; flex-wrap:wrap">
       <button class="btn" onclick="restartCase()">Jogar novamente</button>
+      <button class="btn" onclick="goToLogic()">Revisar análise lógica →</button>
       <button class="btn" onclick="goToSelect()">Escolher outro caso</button>
     </div>
   </div>
